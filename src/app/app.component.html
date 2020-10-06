@@ -1,18 +1,20 @@
-<div class="container">
-  <header>
-    <div class="logo">
-      Movie Info
-    </div>
-    <div>
-      <input type="text" placeholder="Search...">
-    </div>
-  </header>
-  <div class="main">
-    <aside>
-      <app-genres></app-genres>
-    </aside>
-    <section>
-      <app-movies></app-movies>
-    </section>
+<div class="header">
+  <div class="logo">
+    Movie Info
   </div>
+  <div class="search">
+    <input type="text" placeholder="Search...">
+    <button class="search-btn"></button>
+  </div>
+  <div class="sorting-dropdown">
+    Popularity
+  </div>
+</div>
+<div class="main">
+  <aside>
+    <app-genres></app-genres>
+  </aside>
+  <section>
+    <app-movies></app-movies>
+  </section>
 </div>

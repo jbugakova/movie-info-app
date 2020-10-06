@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+body {
+  background: rgb(31,41,49);
+  background: linear-gradient(94deg, rgba(31,41,49,1) 0%, rgba(39,52,61,1) 32%, rgba(56,77,89,1) 100%);
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;;
+}
+
+* {
+  box-sizing: border-box;
+}

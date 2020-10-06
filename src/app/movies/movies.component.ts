@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {MoviesService} from '../services/movies.service';
+
+import {Observable} from 'rxjs';
+
+export interface Movie {
+  id: number;
+  title: string;
+}
 
 @Component({
   selector: 'app-movies',
@@ -6,10 +14,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
+  movies$: Observable<Movie[]>;
 
-  constructor() { }
+  constructor(private movieService: MoviesService) { }
 
   ngOnInit(): void {
+    this.movies$ = this.movieService.getMovies();
   }
 
 }

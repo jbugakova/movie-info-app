@@ -1,1 +1,21 @@
-<p>movies works!</p>
+<div
+  class="movies-container"
+  *ngIf="movies$ | async as movies; else loading">
+  <div
+    class="movie-item"
+    *ngFor="let movie of movies">
+    <div class="poster">
+      <img src="{{'https://image.tmdb.org/t/p/w500/' + movie.poster_path}}">
+      <div class="rating">{{movie.vote_average}}</div>
+    </div>
+    <div class="title">{{movie.title}}</div>
+    <div class="year">{{movie.release_date | date:'yyyy'}}</div>
+  </div>
+  <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+</div>
+
+<ng-template #loading>
+  Loading...
+</ng-template>
+
