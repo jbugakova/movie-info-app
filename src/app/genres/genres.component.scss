@@ -1,0 +1,14 @@
+.genres-sidebar {
+
+  .genre-item {
+    padding: 20px 40px 20px 30px;
+    background-color: gray;
+    color: white;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: #0f0c29;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<div
+  class="genres-sidebar"
+ *ngIf="genres$ | async as genres; else loading"
+>
+  <div
+    class="genre-item"
+    *ngFor="let genre of genres"
+  >
+    <div>{{genre.name}}</div>
+  </div>
+</div>
+
+<ng-template #loading>
+  Loading...
+</ng-template>
