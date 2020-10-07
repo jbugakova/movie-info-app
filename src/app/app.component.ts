@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movie-info-app';
+  currGenreID: number = null;
+  public onGenreClicked(currGenreID) {
+    this.currGenreID = currGenreID;
+  }
 }

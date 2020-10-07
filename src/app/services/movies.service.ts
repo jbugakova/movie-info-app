@@ -16,4 +16,10 @@ export class MoviesService {
         return response['results'];
       }));
   }
+  getMoviesByGenre(genreId): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}discover/movie?api_key=${environment.ApiKey}&with_genres=${genreId}&page=1`)
+      .pipe(map((response) => {
+        return response['results'];
+      }));
+  }
 }

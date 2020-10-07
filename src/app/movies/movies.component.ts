@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MoviesService} from '../services/movies.service';
+import {ShareGenreIdService} from '../services/shareGenreId.service';
 
 import {Observable} from 'rxjs';
 
@@ -16,10 +17,16 @@ export interface Movie {
 export class MoviesComponent implements OnInit {
   movies$: Observable<Movie[]>;
 
-  constructor(private movieService: MoviesService) { }
+  genreId: number = null;
+
+  constructor(private movieService: MoviesService, private shareGenreIdService: ShareGenreIdService) {
+    this.shareGenreIdService.onGenreClick.subscribe(genreId => {
+      this.genreId = genreId;
+      this.movies$ = this.movieService.getMoviesByGenre(this.genreId);
+    });
+  }
 
   ngOnInit(): void {
     this.movies$ = this.movieService.getMovies();
   }
-
 }
