@@ -3,6 +3,7 @@ import {GenresService} from '../services/genres.service';
 import {ShareGenreIdService} from '../services/shareGenreId.service';
 
 import {Observable} from 'rxjs';
+import {ShareSearchStringService} from '../services/shareSearchString.service';
 
 export interface Genre {
   name: string;
@@ -18,8 +19,13 @@ export class GenresComponent implements OnInit {
   genres$: Observable<Genre[]>;
   currGenreId: number = null;
 
-  constructor(private genresService: GenresService, private shareGenreIdService: ShareGenreIdService) {
+  constructor(
+    private genresService: GenresService,
+    private shareGenreIdService: ShareGenreIdService,
+    private shareSearchStringService: ShareSearchStringService) {
     this.shareGenreIdService.onGenreClick.subscribe(id => this.currGenreId = id);
+    this.shareGenreIdService.resetGenreEvent.subscribe(() => this.currGenreId = null);
+    this.shareSearchStringService.reset.subscribe();
   }
 
   ngOnInit(): void {
@@ -29,5 +35,6 @@ export class GenresComponent implements OnInit {
   onGenreClick(event: any): void {
     const genreId = event.target.dataset.genreId;
     this.shareGenreIdService.changeGenre(genreId);
+    this.shareSearchStringService.resetSearchStr();
   }
 }

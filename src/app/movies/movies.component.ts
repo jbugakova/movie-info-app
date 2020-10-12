@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MoviesService} from '../services/movies.service';
 import {ShareGenreIdService} from '../services/shareGenreId.service';
+import {ShareSearchStringService} from '../services/shareSearchString.service';
 
 import {Observable} from 'rxjs';
 
@@ -19,10 +20,17 @@ export class MoviesComponent implements OnInit {
 
   genreId: number = null;
 
-  constructor(private movieService: MoviesService, private shareGenreIdService: ShareGenreIdService) {
+  constructor(
+    private movieService: MoviesService,
+    private shareGenreIdService: ShareGenreIdService,
+    private shareSearchStringService: ShareSearchStringService
+  ) {
     this.shareGenreIdService.onGenreClick.subscribe(genreId => {
       this.genreId = genreId;
       this.movies$ = this.movieService.getMoviesByGenre(this.genreId);
+    });
+    this.shareSearchStringService.search.subscribe(search => {
+      this.movies$ = this.movieService.getMoviesByKey(search);
     });
   }
 

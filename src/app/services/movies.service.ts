@@ -16,10 +16,18 @@ export class MoviesService {
         return response['results'];
       }));
   }
-  getMoviesByGenre(genreId): Observable<Movie[]> {
+  getMoviesByGenre(genreId: number): Observable<Movie[]> {
     return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}discover/movie?api_key=${environment.ApiKey}&with_genres=${genreId}&page=1`)
       .pipe(map((response) => {
         return response['results'];
       }));
+  }
+  getMoviesByKey(searchString: string): Observable<Movie[]> {
+    if (searchString.trim()) {
+      return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}search/movie?api_key=${environment.ApiKey}&query=${searchString.trim()}&page=1`)
+        .pipe(map((response) => {
+          return response['results'];
+        }));
+    }
   }
 }
