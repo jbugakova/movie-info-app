@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   title: 'app-root';
   form: FormGroup;
   searchStr: string;
-  private currGenreId: number;
 
   constructor(private shareSearchStringService: ShareSearchStringService, private shareGenreIdService: ShareGenreIdService) {
     this.shareSearchStringService.search.subscribe(str => this.searchStr = str);

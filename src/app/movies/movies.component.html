@@ -1,18 +1,25 @@
 <div
   class="movies-container"
-  *ngIf="movies$ | async as movies; else loading">
+  *ngIf="response$ | async as response; else loading">
   <div
     class="movie-item"
-    *ngFor="let movie of movies">
+    *ngFor="let movie of response.results | paginate: { itemsPerPage: 20,
+                                                              currentPage: response.page,
+                                                              totalItems: response.total_pages*20 }">
     <div class="poster">
-      <img src="{{'https://image.tmdb.org/t/p/w500/' + movie.poster_path}}">
+      <img src="{{movie.poster_path ? moviesPostersUrl + movie.poster_path : '../assets/images/noposter.jpg'}}">
       <div class="rating">{{movie.vote_average}}</div>
     </div>
     <div class="title">{{movie.title}}</div>
     <div class="year">{{movie.release_date | date:'yyyy'}}</div>
   </div>
-  <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-
+  <pagination-controls (pageChange)="pageChanged($event)"
+                       directionLinks="true"
+                       autoHide="true"
+                       responsive="true"
+                       previousLabel="Previous"
+                       nextLabel="Next"
+  ></pagination-controls>
 </div>
 
 <ng-template #loading>

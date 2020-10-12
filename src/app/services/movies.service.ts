@@ -10,23 +10,24 @@ import {map} from 'rxjs/operators';
 export class MoviesService {
   constructor(private httpClient: HttpClient) {
   }
-  getMovies(): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}movie/popular?api_key=${environment.ApiKey}&language=en-US&page=1`)
+
+  getMovies(page: number): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}movie/popular?api_key=${environment.ApiKey}&include_adult=false&language=en-US&page=${page}`)
       .pipe(map((response) => {
-        return response['results'];
+        return response;
       }));
   }
-  getMoviesByGenre(genreId: number): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}discover/movie?api_key=${environment.ApiKey}&with_genres=${genreId}&page=1`)
+  getMoviesByGenre(genreId: number, page: number): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}discover/movie?api_key=${environment.ApiKey}&with_genres=${genreId}&include_adult=false&page=${page}`)
       .pipe(map((response) => {
-        return response['results'];
+        return response;
       }));
   }
-  getMoviesByKey(searchString: string): Observable<Movie[]> {
+  getMoviesByKey(searchString: string, page: number): Observable<Movie[]> {
     if (searchString.trim()) {
-      return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}search/movie?api_key=${environment.ApiKey}&query=${searchString.trim()}&page=1`)
+      return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}search/movie?api_key=${environment.ApiKey}&query=${searchString.trim()}&include_adult=false&page=${page}`)
         .pipe(map((response) => {
-          return response['results'];
+          return response;
         }));
     }
   }
