@@ -8,7 +8,7 @@ export class ShareSearchStringService {
   public searchString(search: string): void {
     this.search.emit(search);
   }
-  public resetSearchStr(): void {
+  public resetSearchString(): void {
     this.reset.emit();
   }
 }

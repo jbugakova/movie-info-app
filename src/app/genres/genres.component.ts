@@ -22,10 +22,10 @@ export class GenresComponent implements OnInit {
   constructor(
     private genresService: GenresService,
     private shareGenreIdService: ShareGenreIdService,
-    private shareSearchStringService: ShareSearchStringService) {
+    private shareSearchStringService: ShareSearchStringService
+  ) {
     this.shareGenreIdService.onGenreClick.subscribe(id => this.currGenreId = id);
     this.shareGenreIdService.resetGenreEvent.subscribe(() => this.currGenreId = null);
-    this.shareSearchStringService.reset.subscribe();
   }
 
   ngOnInit(): void {
@@ -35,6 +35,6 @@ export class GenresComponent implements OnInit {
   onGenreClick(event: any): void {
     const genreId = event.target.dataset.genreId;
     this.shareGenreIdService.changeGenre(genreId);
-    this.shareSearchStringService.resetSearchStr();
+    this.shareSearchStringService.resetSearchString();
   }
 }
