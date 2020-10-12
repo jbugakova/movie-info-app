@@ -1,18 +1,20 @@
-<div
+<a
   class="movies-container"
   *ngIf="response$ | async as response; else loading">
-  <div
+  <a
     class="movie-item"
     *ngFor="let movie of response.results | paginate: { itemsPerPage: 20,
                                                               currentPage: response.page,
-                                                              totalItems: response.total_pages*20 }">
+                                                              totalItems: response.total_pages*20 }"
+
+    [routerLink]="['movie', movie.id]">
     <div class="poster">
       <img src="{{movie.poster_path ? moviesPostersUrl + movie.poster_path : '../assets/images/noposter.jpg'}}">
       <div class="rating">{{movie.vote_average}}</div>
     </div>
     <div class="title">{{movie.title}}</div>
     <div class="year">{{movie.release_date | date:'yyyy'}}</div>
-  </div>
+  </a>
   <pagination-controls (pageChange)="pageChanged($event)"
                        directionLinks="true"
                        autoHide="true"
@@ -20,9 +22,8 @@
                        previousLabel="Previous"
                        nextLabel="Next"
   ></pagination-controls>
-</div>
+</a>
 
 <ng-template #loading>
   Loading...
 </ng-template>
-

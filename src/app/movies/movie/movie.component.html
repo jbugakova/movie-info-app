@@ -1,0 +1,40 @@
+<div *ngIf="movie$ | async as movie; else loading">
+  <div class="backdrop">
+    <img
+      class="backdrop-img"
+      src="{{backdropUrl + movie.backdrop_path}}">
+  </div>
+  <div>
+    <a routerLink="">Back to the home page</a>
+    <div>
+      Title: {{movie.title}}
+    </div>
+    <div>{{movie.overview}}</div>
+    <div>
+      Genres: {{movie.genres | genreList}}
+    </div>
+    <div>
+      Duration: {{movie.runtime}}min
+    </div>
+    <div>
+      Release date: {{movie.release_date}}
+    </div>
+    <div>
+      Vote: {{movie.vote_average}}
+    </div>
+    <a rel="noopener" target="_blank" href="https://www.themoviedb.org/movie/{{movie.id}}/cast">Full Cast</a>
+  </div>
+
+  <div class="trailers">
+    <h5>Trailers</h5>
+    <div *ngFor="let video of movie.videos.results">
+      {{video.name}}
+      <a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v={{video.key}}">Watch Trailer</a>
+      {{video.type}}
+    </div>
+  </div>
+</div>
+
+  <ng-template #loading>
+    Loading...
+  </ng-template>

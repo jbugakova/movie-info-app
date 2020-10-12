@@ -8,29 +8,6 @@ import {ShareGenreIdService} from './services/shareGenreId.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title: 'app-root';
-  form: FormGroup;
-  searchStr: string;
-
-  constructor(private shareSearchStringService: ShareSearchStringService, private shareGenreIdService: ShareGenreIdService) {
-    this.shareSearchStringService.search.subscribe(str => this.searchStr = str);
-    this.shareSearchStringService.reset.subscribe(() => this.resetForm());
-  }
-
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      searchMovie: new FormControl('')
-    });
-  }
-
-  submitSearchForm(): void {
-    this.shareSearchStringService.searchString(this.form.value.searchMovie);
-    this.shareGenreIdService.resetGenre();
-    this.resetForm();
-  }
-
-  private resetForm(): void {
-    this.form.reset();
-  }
 }

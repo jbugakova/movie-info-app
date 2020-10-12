@@ -31,4 +31,10 @@ export class MoviesService {
         }));
     }
   }
+  getMovieById(id: number): Observable<Movie> {
+    return this.httpClient.get<Movie>(`${environment.TMDBUrl}movie/${id}?api_key=${environment.ApiKey}&language=en-US&append_to_response=videos`)
+      .pipe(map((movie: Movie) => {
+        return movie;
+    }));
+  }
 }
