@@ -12,7 +12,7 @@ export class MoviesService {
   }
 
   getMovies(page: number): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}movie/popular?api_key=${environment.ApiKey}&include_adult=false&language=en-US&page=${page}`)
+    return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}discover/movie?api_key=${environment.ApiKey}&sort_by=popularity.desc&include_adult=false&language=en-US&page=${page}`)
       .pipe(map((response) => {
         return response;
       }));

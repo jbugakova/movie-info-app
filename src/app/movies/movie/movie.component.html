@@ -1,40 +1,81 @@
-<div *ngIf="movie$ | async as movie; else loading">
-  <div class="backdrop">
-    <img
-      class="backdrop-img"
-      src="{{backdropUrl + movie.backdrop_path}}">
-  </div>
-  <div>
-    <a routerLink="">Back to the home page</a>
-    <div>
-      Title: {{movie.title}}
-    </div>
-    <div>{{movie.overview}}</div>
-    <div>
-      Genres: {{movie.genres | genreList}}
-    </div>
-    <div>
-      Duration: {{movie.runtime}}min
-    </div>
-    <div>
-      Release date: {{movie.release_date}}
-    </div>
-    <div>
-      Vote: {{movie.vote_average}}
-    </div>
-    <a rel="noopener" target="_blank" href="https://www.themoviedb.org/movie/{{movie.id}}/cast">Full Cast</a>
-  </div>
+<div class="container">
+  <div *ngIf="movie$ | async as movie; else loading">
+    <div
+      class="overflow"
+      style="background-image: url({{backdropUrl}}{{movie.backdrop_path}})"
+    ></div>
+    <div class="movie-info">
+      <div class="movie-header">
+        <a
+          class="back-home-btn"
+          routerLink=""
+        ></a>
+        <h3 class="movie-title">{{movie.title}}</h3>
+      </div>
+      <div class="movie-poster">
+        <img
+          class="movie-poster-img"
+          src="{{movie.backdrop_path ? backdropUrl + movie.backdrop_path : '../assets/images/no-backdrop.jpg'}}">
+        <div
+          class="movie-tagline"
+          *ngIf="movie.tagline"
+        >"{{movie.tagline}}"</div>
+      </div>
+      <div class="movie-details">
+        <div class="movie-details-header">
+          <div class="genres">
+            <span class="label-genre">Genre: </span>{{movie.genres | genreList}}
+          </div>
+          <a class="cast-link" target="_blank" href="https://www.themoviedb.org/movie/{{movie.id}}/cast">Full Cast</a>
+          <div class="right-content">
+            <div class="right-content-item">
+              <div class="top">
+                {{movie.runtime ? movie.runtime : 0}}
+              </div>
+              <div class="bottom">
+                min
+              </div>
+            </div>
+            <div class="right-content-item">
+              <div class="top">
+                {{movie.release_date | date: 'yyyy'}}
+              </div>
+              <div class="bottom">
+                year
+              </div>
+            </div>
+            <div class="right-content-item">
+              <div class="top">
+                {{movie.vote_average}}
+              </div>
+              <div class="bottom">
+                TMDB
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <div class="trailers">
-    <h5>Trailers</h5>
-    <div *ngFor="let video of movie.videos.results">
-      {{video.name}}
-      <a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v={{video.key}}">Watch Trailer</a>
-      {{video.type}}
+        <div
+          class="overview"
+          *ngIf="movie.overview">
+          {{movie.overview}}
+        </div>
+
+        <table
+          class="trailers"
+          *ngIf="movie.videos.results.length">
+          <tr *ngFor="let video of movie.videos.results">
+            <td class="video-title-column">{{video.name}}<span class="video-type"> ({{video.type}})</span></td>
+            <td class="link-column"><a class="trailer-link" rel="noopener" target="_blank" href="https://www.youtube.com/watch?v={{video.key}}">Watch on YouTube</a></td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </div>
 
-  <ng-template #loading>
-    Loading...
-  </ng-template>
+<ng-template #loading>
+  <div class="loader-container">
+    <div class="loader">Loading...</div>
+  </div>
+</ng-template>

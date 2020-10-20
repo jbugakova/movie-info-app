@@ -9,24 +9,29 @@
         <button class="search-btn" type="submit"></button>
       </form>
     </div>
-    <div class="sorting-dropdown">
-      Popularity
+    <div class="header-menu">
+      <div class="header-menu_item">
+        Now Playing
+      </div>
+      <div class="header-menu_item sorting-dropdown">
+        Popularity
+      </div>
     </div>
   </div>
   <div class="main">
     <aside>
       <app-genres></app-genres>
-      <div class="footer">
-        <div class="tmdb">
-          <img src="../../assets/images/tmdb.png">
-        </div>
-        <div>
-          &#169; by Julia Bugakova. View project on <a rel="noopener" target="_blank" href="https://github.com/jbugakova/movie-info-app">GitHub</a>.
-        </div>
-      </div>
     </aside>
     <section>
       <app-movies></app-movies>
     </section>
   </div>
+  <footer>
+    <a class="tmdb" href="https://www.themoviedb.org/" target="_blank"  >
+      <img src="../../assets/images/tmdb.png">
+    </a>
+    <div class="legal">
+      &#169; 2020 by <a href="https://juliabugakova.com" target="_blank">Julia Bugakova</a>. <br>View project on <a rel="noopener" target="_blank" href="https://github.com/jbugakova/movie-info-app">GitHub</a>
+    </div>
+  </footer>
 </div>

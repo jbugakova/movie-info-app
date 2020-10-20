@@ -19,11 +19,14 @@
                        directionLinks="true"
                        autoHide="true"
                        responsive="true"
-                       previousLabel="Previous"
-                       nextLabel="Next"
+                       previousLabel=""
+                       nextLabel=""
+                       class="my-pagination"
   ></pagination-controls>
 </a>
 
 <ng-template #loading>
-  Loading...
+  <div class="loader-container">
+    <div class="loader">Loading...</div>
+  </div>
 </ng-template>

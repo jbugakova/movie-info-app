@@ -67,5 +67,6 @@ export class MoviesComponent implements OnInit {
         this.response$ = this.movieService.getMoviesByKey(this.search, this.currPage);
         break;
     }
+    window.scrollTo(0, 0);
   }
 }
