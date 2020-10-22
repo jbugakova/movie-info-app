@@ -49,7 +49,28 @@
     }
   }
 
-  .my-pagination .ngx-pagination .current {
-    background-color: #172128;
+}
+
+.movies-pagination::ng-deep .ngx-pagination {
+  a {
+    color: #c3c3c3;
+  }
+  li {
+    border-radius: 2px;
+  }
+  a:hover,
+  button:hover {
+    background-color: #5d7788;
+    border-radius: 2px;
+    color: #fff;
+  }
+  a:focus {
+    outline: none;
+  }
+  .current {
+    background-color: #f98f01;
+  }
+  .disabled {
+    color: #8f9599;
   }
 }
