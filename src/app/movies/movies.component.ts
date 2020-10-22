@@ -1,9 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MoviesService } from '../services/movies.service';
-import { ShareGenreIdService } from '../services/shareGenreId.service';
-import { ShareSearchStringService } from '../services/shareSearchString.service';
-
+import {Component, OnInit} from '@angular/core';
+import {MoviesService} from '../services/movies.service';
 import {Observable} from 'rxjs';
+import {ActivatedRoute, Params} from '@angular/router';
+import {GenresService} from '../services/genres.service';
 
 export interface Movie {
   id: number;
@@ -30,28 +29,25 @@ export class MoviesComponent implements OnInit {
   search: string;
 
   constructor(
+    private route: ActivatedRoute,
     private movieService: MoviesService,
-    private shareGenreIdService: ShareGenreIdService,
-    private shareSearchStringService: ShareSearchStringService
-  ) {
-    this.shareGenreIdService.onGenreClick.subscribe(genreId => {
-      this.genreId = genreId;
-      this.currPage = 1;
-      this.response$ = this.movieService.getMoviesByGenre(this.genreId, this.currPage);
-      this.currGetMovieMethod = GetMovieMethod.ByGenre;
-    });
-    this.shareSearchStringService.search.subscribe(search => {
-      this.currPage = 1;
-      this.search = search;
-      this.response$ = this.movieService.getMoviesByKey(this.search, this.currPage);
-      this.currGetMovieMethod = GetMovieMethod.ByString;
-    });
-  }
+    private genresService: GenresService
+  ) {}
 
   ngOnInit(): void {
     this.currPage = 1;
-    this.response$ = this.movieService.getMovies(this.currPage);
-    this.currGetMovieMethod = GetMovieMethod.All;
+    this.route.queryParams.subscribe((params: Params) => {
+      if (params.with_genres) {
+        this.currGetMovieMethod = GetMovieMethod.ByGenre;
+        this.genresService.getGenreIdByName(params.with_genres).subscribe(genreID => {
+          this.genreId = genreID;
+          this.response$ = this.movieService.getMoviesByGenre(this.genreId, this.currPage);
+        });
+      } else {
+        this.currGetMovieMethod = GetMovieMethod.All;
+        this.response$ = this.movieService.getMovies(this.currPage);
+      }
+    });
   }
 
   pageChanged(event: any): void {

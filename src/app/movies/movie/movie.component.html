@@ -1,5 +1,7 @@
 <div class="container">
-  <div *ngIf="movie$ | async as movie; else loading">
+  <div
+    class="movie-container"
+    *ngIf="movie$ | async as movie; else loading">
     <div
       class="overflow"
       style="background-image: url({{backdropUrl}}{{movie.backdrop_path}})"
@@ -8,7 +10,7 @@
       <div class="movie-header">
         <a
           class="back-home-btn"
-          routerLink=""
+          (click)="onBackBtnClick()"
         ></a>
         <h3 class="movie-title">{{movie.title}}</h3>
       </div>

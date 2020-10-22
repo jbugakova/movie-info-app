@@ -1,9 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {GenresService} from '../services/genres.service';
-import {ShareGenreIdService} from '../services/shareGenreId.service';
-
 import {Observable} from 'rxjs';
-import {ShareSearchStringService} from '../services/shareSearchString.service';
+import {ActivatedRoute, Params} from '@angular/router';
 
 export interface Genre {
   name: string;
@@ -17,24 +15,23 @@ export interface Genre {
 })
 export class GenresComponent implements OnInit {
   genres$: Observable<Genre[]>;
-  currGenreId: number = null;
+  currGenreId: number;
 
   constructor(
     private genresService: GenresService,
-    private shareGenreIdService: ShareGenreIdService,
-    private shareSearchStringService: ShareSearchStringService
-  ) {
-    this.shareGenreIdService.onGenreClick.subscribe(id => this.currGenreId = id);
-    this.shareGenreIdService.resetGenreEvent.subscribe(() => this.currGenreId = null);
-  }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.genres$ = this.genresService.getAll();
-  }
-
-  onGenreClick(event: any): void {
-    const genreId = event.target.dataset.genreId;
-    this.shareGenreIdService.changeGenre(genreId);
-    this.shareSearchStringService.resetSearchString();
+    this.route.queryParams.subscribe((params: Params) => {
+      if (params.with_genres) {
+        this.genresService.getGenreIdByName(params.with_genres).subscribe(genreID => {
+          this.currGenreId = genreID;
+        });
+      } else {
+        this.currGenreId = null;
+      }
+    });
   }
 }

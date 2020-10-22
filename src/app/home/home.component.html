@@ -1,8 +1,8 @@
 <div class="container">
   <div class="header">
-    <div class="logo">
+    <a class="logo" [routerLink]="['/']">
       Movie Info
-    </div>
+    </a>
     <div class="search">
       <form [formGroup]="form" (ngSubmit)="submitSearchForm()">
         <input type="text" formControlName="searchMovie" placeholder="Search...">

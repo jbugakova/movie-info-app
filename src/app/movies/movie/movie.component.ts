@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { MoviesService } from '../../services/movies.service';
-import { Movie } from '../movies.component';
+import {Component, OnInit} from '@angular/core';
+import {Location} from '@angular/common';
+import {ActivatedRoute, Params} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {MoviesService} from '../../services/movies.service';
+import {Movie} from '../movies.component';
 
 @Component({
   selector: 'app-movie',
@@ -11,19 +12,23 @@ import { Movie } from '../movies.component';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
-  backdropUrl: string = 'https://image.tmdb.org/t/p/w1280';
+  backdropUrl = 'https://image.tmdb.org/t/p/w1280';
   movie$: Observable<Movie>;
 
   constructor(
     private activateRoute: ActivatedRoute,
+    private location: Location,
     private moviesService: MoviesService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.movie$ = this.activateRoute.params
       .pipe(switchMap((params: Params) => {
         return this.moviesService.getMovieById(params['id'])
       }));
+  }
+
+  onBackBtnClick(): void {
+    this.location.back();
   }
 }

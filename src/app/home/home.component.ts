@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { ShareSearchStringService } from '../services/shareSearchString.service';
-import { ShareGenreIdService } from '../services/shareGenreId.service';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +10,7 @@ export class HomeComponent implements OnInit {
   form: FormGroup;
   searchStr: string;
 
-  constructor(private shareSearchStringService: ShareSearchStringService, private shareGenreIdService: ShareGenreIdService) {
-    this.shareSearchStringService.search.subscribe(str => this.searchStr = str);
-    this.shareSearchStringService.reset.subscribe(() => this.resetForm());
-  }
+  constructor() {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -24,8 +19,8 @@ export class HomeComponent implements OnInit {
   }
 
   submitSearchForm(): void {
-    this.shareSearchStringService.searchString(this.form.value.searchMovie);
-    this.shareGenreIdService.resetGenre();
+    // this.shareSearchStringService.searchString(this.form.value.searchMovie);
+    // this.shareGenreIdService.resetGenre();
     this.resetForm();
   }
 
