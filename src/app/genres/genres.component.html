@@ -5,10 +5,9 @@
   <div
     class="genre-item"
     *ngFor="let genre of genres"
-    [routerLink]="['movies/']"
-    [queryParams]="{with_genres: genre.name | lowercase}"
     [attr.data-genre-id]="genre.id"
     [class.active]="this.currGenreId == genre.id"
+    (click)="onGenreClick($event)"
   >
     {{genre.name}}
   </div>

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   form: FormGroup;
-  searchStr: string;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -19,8 +19,11 @@ export class HomeComponent implements OnInit {
   }
 
   submitSearchForm(): void {
-    // this.shareSearchStringService.searchString(this.form.value.searchMovie);
-    // this.shareGenreIdService.resetGenre();
+    this.router.navigate(['/movies'], {
+      queryParams: {
+        search: this.form.value.searchMovie
+      }
+    });
     this.resetForm();
   }
 

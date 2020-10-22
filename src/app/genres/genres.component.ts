@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GenresService} from '../services/genres.service';
 import {Observable} from 'rxjs';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 export interface Genre {
   name: string;
@@ -19,6 +19,7 @@ export class GenresComponent implements OnInit {
 
   constructor(
     private genresService: GenresService,
+    private router: Router,
     private route: ActivatedRoute
   ) {}
 
@@ -31,6 +32,14 @@ export class GenresComponent implements OnInit {
         });
       } else {
         this.currGenreId = null;
+      }
+    });
+  }
+
+  onGenreClick(event: any): void {
+    this.router.navigate(['/movies'], {
+      queryParams: {
+        with_genres: event.target.innerText.toLowerCase()
       }
     });
   }
