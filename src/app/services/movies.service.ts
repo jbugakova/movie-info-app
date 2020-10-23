@@ -5,10 +5,15 @@ import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Movie} from '../movies/movies.component';
 import {map} from 'rxjs/operators';
+import {GenresService} from './genres.service';
+import {Genre} from '../genres/genres.component';
 
 @Injectable({providedIn: 'root'})
 export class MoviesService {
-  constructor(private httpClient: HttpClient) {
+  genres: Genre[];
+
+  constructor(private httpClient: HttpClient, private genresService: GenresService) {
+    this.genresService.getAll().subscribe(genres => this.genres = genres);
   }
 
   getMoviesFromSection(section: string, page: number): Observable<Movie[]> {
@@ -20,6 +25,7 @@ export class MoviesService {
   getMoviesByGenre(genreId: number, page: number): Observable<Movie[]> {
     return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}discover/movie?api_key=${environment.ApiKey}&with_genres=${genreId}&include_adult=false&page=${page}`)
       .pipe(map((response) => {
+        response['results'].map(movie => this.parseGenresNamesList(movie));
         return response;
       }));
   }
@@ -36,5 +42,9 @@ export class MoviesService {
       .pipe(map((movie: Movie) => {
         return movie;
     }));
+  }
+  private parseGenresNamesList(movie): void {
+    const genresNames = movie.genre_ids.map(genreID => this.genres.find(genre => genre.id === genreID).name);
+    movie.genres = genresNames.join(', ');
   }
 }

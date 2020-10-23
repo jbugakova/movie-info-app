@@ -9,7 +9,7 @@ import {GenresComponent} from './genres/genres.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {MoviesComponent} from './movies/movies.component';
 import {MovieComponent} from './movies/movie/movie.component';
-import {GenresListPipe} from './genres.pipe';
+import {GenresSeparatorPipe} from './pipes/genres-separator.pipe';
 import {HomeComponent} from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ScrollModule} from './scroll.module';
@@ -23,7 +23,7 @@ import { DropdownListComponent } from './dropdown-list/dropdown-list.component';
     MovieComponent,
     HomeComponent,
     NotFoundComponent,
-    GenresListPipe,
+    GenresSeparatorPipe,
     DropdownListComponent
   ],
   imports: [

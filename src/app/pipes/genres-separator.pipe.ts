@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'genreList'
+  name: 'genresSeparator'
 })
-export class GenresListPipe implements PipeTransform {
+export class GenresSeparatorPipe implements PipeTransform {
   transform(genresArr): string {
     return genresArr.map((genre) => genre.name).toString().replace(/,/gi, ' / ');
   }
