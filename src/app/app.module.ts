@@ -12,6 +12,7 @@ import {MovieComponent} from './movies/movie/movie.component';
 import {GenresListPipe} from './genres.pipe';
 import {HomeComponent} from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
+import {ScrollModule} from './scroll.module';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,12 @@ import {AppRoutingModule} from './app-routing.module';
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
