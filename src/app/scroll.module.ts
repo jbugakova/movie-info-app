@@ -8,7 +8,7 @@ export class ScrollModule {
   constructor(router: Router, viewportScroller: ViewportScroller) {
     router.events.pipe(
       filter((e): e is Scroll => e instanceof Scroll),
-      delay(100)
+      delay(150)
     ).subscribe(e => {
       if (e.position) {
         viewportScroller.scrollToPosition(e.position);

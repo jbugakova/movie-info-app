@@ -11,8 +11,8 @@ export class MoviesService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getMovies(page: number): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}discover/movie?api_key=${environment.ApiKey}&sort_by=popularity.desc&include_adult=false&language=en-US&page=${page}`)
+  getMoviesFromSection(section: string, page: number): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}movie/${section.replace(' ', '_')}?api_key=${environment.ApiKey}&include_adult=false&language=en-US&page=${page}`)
       .pipe(map((response) => {
         return response;
       }));

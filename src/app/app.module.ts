@@ -13,6 +13,7 @@ import {GenresListPipe} from './genres.pipe';
 import {HomeComponent} from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ScrollModule} from './scroll.module';
+import { DropdownListComponent } from './dropdown-list/dropdown-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ScrollModule} from './scroll.module';
     MovieComponent,
     HomeComponent,
     NotFoundComponent,
-    GenresListPipe
+    GenresListPipe,
+    DropdownListComponent
   ],
   imports: [
     BrowserModule,

@@ -37,8 +37,10 @@ export class MoviesComponent implements OnInit {
         });
       } else if (params.search) {
         this.response$ = this.movieService.getMoviesByKey(params.search, this.currPage);
+      } else if (params.section) {
+        this.response$ = this.movieService.getMoviesFromSection(params.section, this.currPage);
       } else {
-        this.response$ = this.movieService.getMovies(this.currPage);
+        this.response$ = this.movieService.getMoviesFromSection('popular', this.currPage);
       }
     });
   }
