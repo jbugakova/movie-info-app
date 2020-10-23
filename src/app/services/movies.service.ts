@@ -19,6 +19,7 @@ export class MoviesService {
   getMoviesFromSection(section: string, page: number): Observable<Movie[]> {
     return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}movie/${section.replace(' ', '_')}?api_key=${environment.ApiKey}&include_adult=false&language=en-US&page=${page}`)
       .pipe(map((response) => {
+        response['results'].map(movie => this.parseGenresNamesList(movie));
         return response;
       }));
   }
@@ -33,6 +34,7 @@ export class MoviesService {
     if (searchString.trim()) {
       return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}search/movie?api_key=${environment.ApiKey}&query=${searchString.trim()}&include_adult=false&page=${page}`)
         .pipe(map((response) => {
+          response['results'].map(movie => this.parseGenresNamesList(movie));
           return response;
         }));
     }
