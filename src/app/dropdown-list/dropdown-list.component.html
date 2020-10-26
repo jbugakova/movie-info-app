@@ -1,5 +1,8 @@
 <div class="dropdown-container">
-  <div class="chosen-dropdown-item" id="chosenDropdownItem">{{currentItem}}</div>
+  <div class="chosen-dropdown-item">
+    <span id="chosenDropdownItem">{{currentItem}}</span>
+    <img class="arrow-down-image" src="../../assets/images/arrow-down.png">
+  </div>
   <div class="dropdown-list-container">
     <div class="dropdown-list" (click)="onDropdownListClick($event)">
       <div *ngFor="let item of listItems" class="dropdown-list-item">

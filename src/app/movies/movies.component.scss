@@ -13,6 +13,10 @@
       transform: scale(1.05);
       cursor: pointer;
     }
+    &:hover .poster .movie-details {
+      transform: translateY(0);
+      opacity: 1;
+    }
     .poster {
       display: flex;
       box-shadow: 0px 10px 30px -3px rgba(0,0,0,0.75);
@@ -38,14 +42,20 @@
         line-height: 40px;
       }
     }
-    .title {
-      color: #fff;
-      padding-top: 10px;
-    }
-    .year {
-      color: #8f9599;
-      font-size: 14px;
-      padding-top: 4px;
+    .movie-details {
+      .title {
+        color: #fff;
+        padding-top: 10px;
+      }
+      .genre {
+        color: #f98f01;
+        font-size: 13px;
+      }
+      .year {
+        color: #8f9599;
+        font-size: 14px;
+        padding-top: 4px;
+      }
     }
   }
 
