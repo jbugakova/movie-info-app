@@ -14,6 +14,7 @@ import {HomeComponent} from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ScrollModule} from './scroll.module';
 import { DropdownListComponent } from './dropdown-list/dropdown-list.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DropdownListComponent } from './dropdown-list/dropdown-list.component';
     ReactiveFormsModule,
     NgxPaginationModule,
     AppRoutingModule,
-    ScrollModule
+    ScrollModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

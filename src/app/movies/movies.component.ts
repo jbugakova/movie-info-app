@@ -3,6 +3,7 @@ import {MoviesService} from '../services/movies.service';
 import {Observable} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {GenresService} from '../services/genres.service';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 export interface Movie {
   id: number;
@@ -12,7 +13,17 @@ export interface Movie {
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss']
+  styleUrls: ['./movies.component.scss'],
+  animations: [
+    trigger('movie', [
+      transition('void => *', [
+        style({
+          opacity: 0
+        }),
+        animate('1200ms ease-out')
+      ])
+    ])
+  ]
 })
 export class MoviesComponent implements OnInit {
   response$: Observable<Movie[]>;

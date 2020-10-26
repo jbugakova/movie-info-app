@@ -5,11 +5,22 @@ import {switchMap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {MoviesService} from '../../services/movies.service';
 import {Movie} from '../movies.component';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss']
+  styleUrls: ['./movie.component.scss'],
+  animations: [
+    trigger('movie', [
+      transition('void => *', [
+        style({
+          opacity: 0
+        }),
+        animate('1000ms ease-out')
+      ])
+    ])
+  ]
 })
 export class MovieComponent implements OnInit {
   backdropUrl = 'https://image.tmdb.org/t/p/w1280';

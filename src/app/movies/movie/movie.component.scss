@@ -44,13 +44,18 @@
           width: 90px;
           height: 35px;
           text-decoration: none;
-          background-color: #f1c40f;
+          background-color: #f98f01;
           background-image: url("../../../assets/images/back-home.png");
           background-repeat: no-repeat;
           background-position: center;
           background-size: 60%;
           color: #000;
-          cursor: pointer;
+          transition: 0.2s ease-in;
+
+          &:hover {
+            cursor: pointer;
+            background-color: #ff9e1b;
+          }
         }
         .movie-title {
           margin: 0;
@@ -58,6 +63,7 @@
         }
       }
       .movie-poster {
+        min-height: 500px;
         position: relative;
 
         &-img {

@@ -1,8 +1,9 @@
-<a
+<div
   class="movies-container"
   *ngIf="response$ | async as response; else loading">
-  <a
+  <div
     class="movie-item"
+    [@movie]=""
     *ngFor="let movie of response.results | paginate: { itemsPerPage: 20,
                                                               currentPage: response.page,
                                                               totalItems: response.total_pages*20 }"
@@ -17,7 +18,7 @@
       <div class="genre">{{movie.genres}}</div>
       <div class="year">{{movie.release_date | date:'yyyy'}}</div>
     </div>
-  </a>
+  </div>
   <pagination-controls (pageChange)="pageChanged($event)"
                        directionLinks="true"
                        autoHide="true"
@@ -26,7 +27,7 @@
                        nextLabel=""
                        class="movies-pagination"
   ></pagination-controls>
-</a>
+</div>
 
 <ng-template #loading>
   <div class="loader-container">

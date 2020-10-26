@@ -13,6 +13,9 @@
       transform: scale(1.05);
       cursor: pointer;
     }
+    &:focus {
+      outline: none;
+    }
     &:hover .poster .movie-details {
       transform: translateY(0);
       opacity: 1;
