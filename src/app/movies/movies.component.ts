@@ -30,6 +30,7 @@ export class MoviesComponent implements OnInit {
   moviesPostersUrl = `https://image.tmdb.org/t/p/w500/`;
   genreId: number = null;
   currPage: number;
+  searchString: string = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,6 +42,7 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((params: Params) => {
       this.currPage = params.page ? params.page : 1;
+      this.resetSearchString();
       if (params.with_genres) {
         this.genresService.getGenreIdByName(params.with_genres).subscribe(genreID => {
           this.genreId = genreID;
@@ -48,6 +50,7 @@ export class MoviesComponent implements OnInit {
         });
       } else if (params.search) {
         this.response$ = this.movieService.getMoviesByKey(params.search, this.currPage);
+        this.searchString = params.search;
       } else if (params.section) {
         this.response$ = this.movieService.getMoviesFromSection(params.section, this.currPage);
       } else {
@@ -63,5 +66,9 @@ export class MoviesComponent implements OnInit {
       queryParams: {page: this.currPage},
       queryParamsHandling: "merge"
     });
+  }
+
+  private resetSearchString(): void {
+    this.searchString = null;
   }
 }

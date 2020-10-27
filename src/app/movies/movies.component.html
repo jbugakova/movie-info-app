@@ -1,6 +1,10 @@
+<div class="search-info" *ngIf="searchString">
+  Results of searching: "<span class="searching-string">{{searchString}}</span>":
+</div>
 <div
   class="movies-container"
   *ngIf="response$ | async as response; else loading">
+  <div class="no-movies" *ngIf="response.results.length < 1">There are no movies with this title.</div>
   <div
     class="movie-item"
     [@movie]=""

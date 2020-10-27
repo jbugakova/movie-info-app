@@ -1,8 +1,23 @@
+.search-info {
+  padding: 10px 10px 0px 30px;
+  color: #fff;
+  font-size: 16px;
+
+  .searching-string {
+    color: #f98f01;
+  }
+}
 .movies-container {
   display: flex;
   flex-wrap: wrap;
   padding: 10px 30px 10px 10px;
 
+  .no-movies {
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    padding: 4rem 0;
+  }
   .movie-item {
     text-decoration: none;
     flex: 0 0 21%;
@@ -21,6 +36,8 @@
       opacity: 1;
     }
     .poster {
+      height: 365px;
+      width: 240px;
       display: flex;
       box-shadow: 0px 10px 30px -3px rgba(0,0,0,0.75);
       position: relative;

@@ -1,9 +1,7 @@
 .container {
   margin: auto;
   max-width: 1600px;
-  min-width: 1300px;
-  background: #132330;
-  background: linear-gradient(94deg, #132330 0%, #17232c 32%, #273f4d 100%);
+  min-width: 1460px;
 
   .header {
     height: 90px;
@@ -90,7 +88,6 @@
     }
     .article {
       flex: 0 0 80%;
-      min-height: 2000px;
     }
   }
   .footer {
@@ -125,6 +122,6 @@
 @media (min-width: 1600px) {
   .container .footer {
     background-color: transparent;
-    border-top: 3px solid #1f2931;
+    border-top: 1px solid #8f9599;
   }
 }
