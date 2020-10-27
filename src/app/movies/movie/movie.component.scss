@@ -2,11 +2,11 @@
   overflow: hidden;
   position: relative;
   width: 100vw;
-  min-height: 100vh;
   height: 100%;
-  min-width: 320px;
-  background: #1f2931;
-  background: linear-gradient(94deg, #1f2931 0%, #27343d 32%, #384d59 100%);
+  min-width: 800px;
+  min-height: 100vh;
+  background: #132330;
+  background: linear-gradient(94deg, #132330 0%, #17232c 32%, #273f4d 100%);
 
   .movie-container {
 
@@ -63,7 +63,7 @@
         }
       }
       .movie-poster {
-        min-height: 500px;
+        min-height: 300px;
         position: relative;
 
         &-img {

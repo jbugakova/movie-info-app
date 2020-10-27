@@ -19,15 +19,15 @@
       <div class="year">{{movie.release_date | date:'yyyy'}}</div>
     </div>
   </div>
-  <pagination-controls (pageChange)="pageChanged($event)"
-                       directionLinks="true"
-                       autoHide="true"
-                       responsive="true"
-                       previousLabel=""
-                       nextLabel=""
-                       class="movies-pagination"
-  ></pagination-controls>
 </div>
+<pagination-controls (pageChange)="pageChanged($event)"
+                     directionLinks="true"
+                     autoHide="true"
+                     responsive="true"
+                     previousLabel=""
+                     nextLabel=""
+                     class="movies-pagination"
+></pagination-controls>
 
 <ng-template #loading>
   <div class="loader-container">

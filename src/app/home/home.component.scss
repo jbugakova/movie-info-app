@@ -1,6 +1,9 @@
 .container {
-  background: rgb(31,41,49);
-  background: linear-gradient(94deg, rgba(31,41,49,1) 0%, rgba(39,52,61,1) 32%, rgba(56,77,89,1) 100%);
+  margin: auto;
+  max-width: 1600px;
+  min-width: 1300px;
+  background: #132330;
+  background: linear-gradient(94deg, #132330 0%, #17232c 32%, #273f4d 100%);
 
   .header {
     height: 90px;
@@ -79,17 +82,18 @@
   .main {
     display: flex;
 
-    aside {
+    .aside {
       flex: 0 0 20%;
       display: flex;
       flex-flow: column;
       justify-content: space-between;
     }
-    section {
+    .article {
       flex: 0 0 80%;
+      min-height: 2000px;
     }
   }
-  footer {
+  .footer {
     padding: 20px;
     background-color: #1f2931;
     display: flex;
@@ -118,3 +122,9 @@
   }
 }
 
+@media (min-width: 1600px) {
+  .container .footer {
+    background-color: transparent;
+    border-top: 3px solid #1f2931;
+  }
+}

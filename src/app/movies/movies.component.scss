@@ -1,11 +1,11 @@
 .movies-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  padding: 10px 30px 10px 10px;
 
   .movie-item {
     text-decoration: none;
-    flex: 0 0 18%;
+    flex: 0 0 21%;
     margin: 20px;
     transition: all 0.2s ease-in;
 
@@ -32,7 +32,7 @@
       }
       .rating {
         position: absolute;
-        top: 80%;
+        bottom: 2rem;
         right: -20px;
         width: 40px;
         height: 40px;
@@ -61,10 +61,15 @@
       }
     }
   }
-
+  &::after {
+    content: "";
+    flex: auto;
+  }
 }
 
 .movies-pagination::ng-deep .ngx-pagination {
+  text-align: center;
+
   a {
     color: #c3c3c3;
   }
@@ -87,3 +92,4 @@
     color: #8f9599;
   }
 }
+
