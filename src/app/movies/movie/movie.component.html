@@ -13,10 +13,14 @@
           (click)="onBackBtnClick()"
         ></a>
         <h3 class="movie-title">{{movie.title}}</h3>
+        <div class="rating">
+          <img src="../../../assets/images/star.png">
+          <span>{{movie.vote_average}}</span>
+        </div>
       </div>
       <div class="movie-poster">
         <img
-          class="movie-poster-img"
+          class="movie-backdrop-img"
           src="{{movie.backdrop_path ? backdropUrl + movie.backdrop_path : '../assets/images/no-backdrop.jpg'}}">
         <div
           class="movie-tagline"
@@ -24,55 +28,53 @@
         >"{{movie.tagline}}"</div>
       </div>
       <div class="movie-details">
-        <div class="movie-details-header">
-          <div class="genres">
-            <span class="label-genre">Genre: </span>{{movie.genres | genresSeparator}}
-          </div>
-          <a class="cast-link" target="_blank" href="https://www.themoviedb.org/movie/{{movie.id}}/cast">Full Cast</a>
-          <div class="right-content">
-            <div class="right-content-item">
-              <div class="top">
-                {{movie.runtime ? movie.runtime : 0}}
-              </div>
-              <div class="bottom">
-                min
-              </div>
-            </div>
-            <div class="right-content-item">
-              <div class="top">
-                {{movie.release_date | date: 'yyyy'}}
-              </div>
-              <div class="bottom">
-                year
-              </div>
-            </div>
-            <div class="right-content-item">
-              <div class="top">
-                {{movie.vote_average}}
-              </div>
-              <div class="bottom">
-                TMDB
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <table class="movie-main-info">
+          <tr>
+            <td>Genre:</td>
+            <td>{{movie.genres | genresList}}</td>
+          </tr>
+          <tr>
+            <td>Runtime:</td>
+            <td>{{movie.runtime ? movie.runtime : 0}} min</td>
+          </tr>
+          <tr>
+            <td>Release date:</td>
+            <td>{{movie.release_date | date: 'dd MMMM yyyy'}}</td>
+          </tr>
+          <tr>
+            <td>Country:</td>
+            <td>{{movie.production_countries | countryList}}</td>
+          </tr>
+          <tr>
+            <td>Budget:</td>
+            <td>{{movie.budget | moneyFormatter}}$</td>
+          </tr>
+          <tr>
+            <td>Revenue:</td>
+            <td>{{movie.revenue | moneyFormatter}}$</td>
+          </tr>
+          <tr>
+            <td>Cast:</td>
+            <td><a class="cast-link" target="_blank" href="https://www.themoviedb.org/movie/{{movie.id}}/cast">Full Cast</a></td>
+          </tr>
+        </table>
         <div
           class="overview"
           *ngIf="movie.overview">
           {{movie.overview}}
         </div>
-
-        <table
-          class="trailers"
-          *ngIf="movie.videos.results.length">
-          <tr *ngFor="let video of movie.videos.results">
-            <td class="video-title-column">{{video.name}}<span class="video-type"> ({{video.type}})</span></td>
-            <td class="link-column"><a class="trailer-link" rel="noopener" target="_blank" href="https://www.youtube.com/watch?v={{video.key}}">Watch on YouTube</a></td>
-          </tr>
-        </table>
       </div>
-    </div>
+
+<!--        <table-->
+<!--          class="trailers"-->
+<!--          *ngIf="movie.videos.results.length">-->
+<!--          <tr *ngFor="let video of movie.videos.results">-->
+<!--            <td class="video-title-column">{{video.name}}<span class="video-type"> ({{video.type}})</span></td>-->
+<!--            <td class="link-column"><a class="trailer-link" rel="noopener" target="_blank" href="https://www.youtube.com/watch?v={{video.key}}">Watch on YouTube</a></td>-->
+<!--          </tr>-->
+<!--        </table>-->
+
+      </div>
   </div>
 </div>
 

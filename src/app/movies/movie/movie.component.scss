@@ -32,17 +32,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px 10px;
-        letter-spacing: 5px;
+        padding: 20px 15px;
         font-size: 27px;
         font-weight: 600;
         text-transform: uppercase;
 
         .back-home-btn {
           border-radius: 2px;
-          padding: 10px;
+          padding: 10px 20px;
           width: 90px;
-          height: 35px;
+          height: 45px;
           text-decoration: none;
           background-color: #f98f01;
           background-image: url("../../../assets/images/back-home.png");
@@ -58,15 +57,30 @@
           }
         }
         .movie-title {
-          margin: 0;
-          text-align: right;
+          margin: 0 20px;
+          //margin: 0;
+          letter-spacing: 5px;
+          text-align: center;
+        }
+        .rating {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 45px;
+            height: 45px;
+            margin-right: 5px;
+          }
+          span {
+            font-size: 33px;
+          }
         }
       }
       .movie-poster {
         min-height: 300px;
         position: relative;
 
-        &-img {
+        .movie-backdrop-img {
           display: block;
           width: 100%;
           height: auto;
@@ -79,91 +93,76 @@
           border-radius: 2px;
           padding: 1rem 1.8rem;
           position: absolute;
-          bottom: -.8rem;
+          bottom: -0.8rem;
           left: 3rem;
         }
       }
       .movie-details {
-        padding: 50px 20px 20px;
+        padding: 30px 30px 20px;
         background-color: #1f2931;
         height: auto;
 
-        &-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          .genres {
-
-            .label-genre {
-              color: #8f9599;
-            }
-          }
-          .cast-link {
-            color: #fff;
-            text-decoration: none;
-            transition: 0.2s ease-in-out;
-
-            &:hover {
-              color: #f98f01;
-              text-decoration: underline;
-            }
-          }
-          .right-content {
-            width: 200px;
-            display: flex;
-            justify-content: space-between;
-
-            &-item {
-              display: flex;
-              flex-flow: column;
-              align-items: center;
-
-              .top {
-                font-size: 18px;
-              }
-              .bottom {
-                color: #8f9599;
-              }
-            }
-          }
-        }
-        .overview {
-          padding: 20px 0;
-        }
-        .trailers {
-          padding-top: 30px;
+        .movie-main-info {
           width: 100%;
 
-          .video-title-column,
-          .link-column {
-            background-color: #576168;
-          }
-          .video-title-column {
-            padding: 10px 20px 10px 5px;
-
-            .video-type {
-              color: #8f9599;
+          tr {
+            &:nth-of-type(2n + 1) {
+              background-color: #27333c;
             }
-          }
-          .link-column {
-            padding: 10px 5px 10px;
-            text-align: center;
-            width: 150px;
 
-            .trailer-link {
-              color: #f98f01;
-              text-decoration: none;
-              transition: 0.2s ease-in-out;
+            td {
+              padding: 0.5rem 2rem;
 
-              &:hover {
-                text-decoration: underline;
-                color: #fff;
+              &:first-of-type {
+                color: #8f9599;
+              }
+
+              a {
+                color: #f98f01;
+                transition: color 0.2s ease-in-out;
+
+                &:hover {
+                  color: #fff;
+                }
               }
             }
           }
         }
       }
+      .overview {
+        padding: 20px 10px;
+      }
+      //.trailers {
+      //  padding-top: 30px;
+      //  width: 100%;
+      //
+      //  .video-title-column,
+      //  .link-column {
+      //    background-color: #576168;
+      //  }
+      //  .video-title-column {
+      //    padding: 10px 20px 10px 5px;
+      //
+      //    .video-type {
+      //      color: #8f9599;
+      //    }
+      //  }
+      //  .link-column {
+      //    padding: 10px 5px 10px;
+      //    text-align: center;
+      //    width: 150px;
+      //
+      //    .trailer-link {
+      //      color: #f98f01;
+      //      text-decoration: none;
+      //      transition: 0.2s ease-in-out;
+      //
+      //      &:hover {
+      //        text-decoration: underline;
+      //        color: #fff;
+      //      }
+      //    }
+      //  }
     }
   }
 }

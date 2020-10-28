@@ -9,7 +9,9 @@ import {GenresComponent} from './genres/genres.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {MoviesComponent} from './movies/movies.component';
 import {MovieComponent} from './movies/movie/movie.component';
-import {GenresSeparatorPipe} from './pipes/genres-separator.pipe';
+import {GenresListPipe} from './pipes/genres-list.pipe';
+import {CountryListPipe} from './pipes/country-list.pipe';
+import {MoneyFormatterPipe} from './pipes/money-formatter.pipe';
 import {HomeComponent} from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ScrollModule} from './scroll.module';
@@ -24,7 +26,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MovieComponent,
     HomeComponent,
     NotFoundComponent,
-    GenresSeparatorPipe,
+    GenresListPipe,
+    CountryListPipe,
+    MoneyFormatterPipe,
     DropdownListComponent
   ],
   imports: [
