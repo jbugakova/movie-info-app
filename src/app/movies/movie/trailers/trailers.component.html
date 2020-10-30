@@ -1,0 +1,21 @@
+<div *ngIf="trailers.length == 1">
+  <div class="trailer-label">
+    Trailer:
+  </div>
+  <div class="trailer">
+    <iframe class="trailer-video" [src]="getEmbedUrl(trailers[0].key)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div *ngIf="trailers.length >= 2">
+  <div class="trailer-label">{{trailers.length}} trailers:</div>
+  <div class="carousel-container">
+    <div class="carousel-items">
+      <div class="carousel-item" *ngFor="let trailer of trailers">
+        <iframe [src]="getEmbedUrl(trailer.key)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+

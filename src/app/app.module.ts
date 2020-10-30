@@ -17,6 +17,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {ScrollModule} from './scroll.module';
 import { DropdownListComponent } from './dropdown-list/dropdown-list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TrailersComponent} from './movies/movie/trailers/trailers.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     GenresListPipe,
     CountryListPipe,
     MoneyFormatterPipe,
-    DropdownListComponent
+    DropdownListComponent,
+    TrailersComponent
   ],
   imports: [
     BrowserModule,

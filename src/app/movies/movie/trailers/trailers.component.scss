@@ -1,0 +1,40 @@
+.trailer-label {
+  padding: 10px;
+  text-transform: uppercase;
+  color: #f98f01;
+}
+.trailer {
+  width: 100%;
+
+  &-video {
+    margin: auto;
+    width: 100%;
+    height: 500px;
+  }
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+
+  .carousel-items {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .carousel-item {
+      flex: 0 0 47%;
+      margin: 10px;
+      //width: 50%;
+      //height: 500px;
+
+      iframe  {
+        width: 100%;
+        height: 300px;
+      }
+    }
+  }
+}
+
+

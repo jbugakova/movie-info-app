@@ -63,17 +63,8 @@
           *ngIf="movie.overview">
           {{movie.overview}}
         </div>
+        <app-trailers [trailers]="movie.videos.results"></app-trailers>
       </div>
-
-<!--        <table-->
-<!--          class="trailers"-->
-<!--          *ngIf="movie.videos.results.length">-->
-<!--          <tr *ngFor="let video of movie.videos.results">-->
-<!--            <td class="video-title-column">{{video.name}}<span class="video-type"> ({{video.type}})</span></td>-->
-<!--            <td class="link-column"><a class="trailer-link" rel="noopener" target="_blank" href="https://www.youtube.com/watch?v={{video.key}}">Watch on YouTube</a></td>-->
-<!--          </tr>-->
-<!--        </table>-->
-
       </div>
   </div>
 </div>
