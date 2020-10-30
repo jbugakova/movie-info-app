@@ -1,21 +1,36 @@
-<div *ngIf="trailers.length == 1">
-  <div class="trailer-label">
-    Trailer:
+<div class="container" *ngIf="trailers.length != 0">
+  <div *ngIf="trailers.length == 1">
+    <div class="trailer-label">
+      Trailer:
+    </div>
   </div>
-  <div class="trailer">
-    <iframe class="trailer-video" [src]="getEmbedUrl(trailers[0].key)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-</div>
 
-<div *ngIf="trailers.length >= 2">
-  <div class="trailer-label">{{trailers.length}} trailers:</div>
-  <div class="carousel-container">
-    <div class="carousel-items">
-      <div class="carousel-item" *ngFor="let trailer of trailers">
-        <iframe [src]="getEmbedUrl(trailer.key)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div *ngIf="trailers.length >= 2">
+    <div class="trailer-label">
+      {{trailers.length}} trailers:
+    </div>
+    <div class="carousel-container">
+      <div class="carousel-header">
+        <div #carouselContainer class="carousel-items-container">
+          <div #carouselItems class="carousel-items">
+            <div
+              class="carousel-item"
+              [title]="trailer.name"
+              *ngFor="let trailer of trailers; let i = index"
+              [class.current]="this.currIndex == i"
+              (click)="onTrailerClick(i)"
+            >
+              <img [src]="getYouTubeVideoThumbnail(trailer.key)" [alt]="trailer.name">
+            </div>
+          </div>
+        </div>
+        <div class="navs">
+          <button class="prev-btn" (click)="prevTrailer()" [disabled]="this.currPage == 0"></button>
+          <button class="next-btn" (click)="nextTrailer()" [disabled]="this.currPage == trailers.length - 3 || trailers.length <= 3"></button>
+        </div>
       </div>
     </div>
   </div>
+
+  <div [innerHtml]="this.safeHtml" class="current-trailer"></div>
 </div>
-
-

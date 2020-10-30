@@ -3,6 +3,7 @@
     class="movie-container"
     *ngIf="movie$ | async as movie; else loading">
     <div
+      *ngIf="movie.backdrop_path"
       class="overflow"
       style="background-image: url({{backdropUrl}}{{movie.backdrop_path}})"
     ></div>

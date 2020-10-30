@@ -14,27 +14,94 @@
 }
 
 .carousel-container {
-  overflow: hidden;
   width: 100%;
 
-  .carousel-items {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .carousel-header {
+    padding: 20px 0;
+    position: relative;
 
-    .carousel-item {
-      flex: 0 0 47%;
-      margin: 10px;
-      //width: 50%;
-      //height: 500px;
+    .carousel-items-container {
+      overflow: hidden;
 
-      iframe  {
-        width: 100%;
-        height: 300px;
+      .carousel-items {
+        display: flex;
+        min-width: 100%;
+        transition: transform 0.4s ease-in-out;
+
+        .carousel-item {
+          width: calc(100% / 3);
+          height: 160px;
+          position: relative;
+          z-index: 3;
+          border: 1px solid transparent;
+
+          &:hover {
+            cursor: pointer;
+
+            &::before {
+              background-color: transparent;
+            }
+          }
+          &::before {
+            z-index: 2;
+            content: "";
+            display: block;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: background-color 0.2s ease-in-out;
+          }
+          img {
+            position: relative;
+            z-index: 1;
+            display: block;
+            height: 100%;
+            width: 100%;
+          }
+          &.current {
+            border: 1px solid #f98f01;
+          }
+          &.current::before {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+    .navs {
+      .prev-btn,
+      .next-btn
+      {
+        position: absolute;
+        top: calc(50% - 25px);
+        border: none;
+        width: 25px;
+        height: 25px;
+        background-color: transparent;
+        background-position: center;
+        background-size: cover;
+
+        &:disabled {
+          opacity: 0.2;
+        }
+        &:not(:disabled) {
+          cursor: pointer;
+        }
+        &:focus {
+          outline: none;
+
+        }
+      }
+      .prev-btn {
+        left: -30px;
+        background-image: url('../../../../assets/images/prev-btn.png');
+      }
+      .next-btn {
+        right: -30px;
+        background-image: url('../../../../assets/images/next-btn.png');
       }
     }
   }
 }
-
-
