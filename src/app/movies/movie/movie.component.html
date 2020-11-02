@@ -65,7 +65,7 @@
           {{movie.overview}}
         </div>
         <app-trailers [trailers]="movie.videos.results"></app-trailers>
-      </div>
+        <app-similar-movie-carousel [id]="movie.id"></app-similar-movie-carousel>
       </div>
   </div>
 </div>

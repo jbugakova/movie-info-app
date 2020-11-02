@@ -18,6 +18,7 @@ import {ScrollModule} from './scroll.module';
 import { DropdownListComponent } from './dropdown-list/dropdown-list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TrailersComponent} from './movies/movie/trailers/trailers.component';
+import {SimilarMovieCarouselComponent} from './movies/movie/similar-movie-carousel/similar-movie-carousel.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {TrailersComponent} from './movies/movie/trailers/trailers.component';
     CountryListPipe,
     MoneyFormatterPipe,
     DropdownListComponent,
-    TrailersComponent
+    TrailersComponent,
+    SimilarMovieCarouselComponent
   ],
   imports: [
     BrowserModule,

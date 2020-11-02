@@ -45,6 +45,18 @@ export class MoviesService {
         return movie;
     }));
   }
+  getSimilarMovies(id: number): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(`${environment.TMDBUrl}movie/${id}/similar?api_key=${environment.ApiKey}&language=en-US&page=1`)
+      .pipe(map((response) => {
+        return (response['results'].map(movie => {
+          return {
+            id: movie.id,
+            title: movie.title,
+            poster: movie.poster_path
+          };
+        }));
+      }));
+  }
   private parseGenresNamesList(movie): void {
     const genresNames = movie.genre_ids.map(genreID => this.genres.find(genre => genre.id === genreID).name);
     movie.genres = genresNames.join(', ');

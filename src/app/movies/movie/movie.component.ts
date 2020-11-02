@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {MoviesService} from '../../services/movies.service';
@@ -28,6 +28,7 @@ export class MovieComponent implements OnInit {
 
   constructor(
     private activateRoute: ActivatedRoute,
+    private router: Router,
     private location: Location,
     private moviesService: MoviesService
   ) {}

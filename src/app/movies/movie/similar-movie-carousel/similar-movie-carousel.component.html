@@ -1,0 +1,23 @@
+<div class="similar-movies-container" *ngIf="response$ | async as response">
+  <div *ngIf="response.length">
+    <h1 class="title">{{response.length}} Similar movies:</h1>
+
+    <div class="similar-movies-carousel">
+
+      <div class="similar-movies" #similarMovies>
+        <div class="similar-movies-container" #similarMoviesContainer>
+          <div class="movie-item" *ngFor="let movie of response" [attr.id]="movie.id" (click)="onMovieClick($event)">
+            <img class="movie-poster" src="{{movie.poster ? moviesPostersUrl + movie.poster : '../../assets/images/noposter.jpg'}}" alt="{{movie.title}}">
+            <div class="movie-title">{{movie.title}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navs">
+        <button class="prev-btn" (click)="prevMoviesPage()" [disabled]="this.currPage == 0"></button>
+        <button class="next-btn" (click)="nextMoviesPage()" [disabled]="this.currPage == response.length/5 - 1"></button>
+      </div>
+
+    </div>
+  </div>
+</div>
