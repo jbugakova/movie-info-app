@@ -15,11 +15,12 @@ export interface Trailer {
 export class TrailersComponent implements OnInit, AfterViewInit {
   @Input() trailers: Trailer[];
   @ViewChild('carouselItems') carouselItems: ElementRef = null;
-  @ViewChild('currentTrailer') currentTrailer: ElementRef = null;
-  @ViewChild('carouselContainer') carouselContainer: ElementRef;
+  @ViewChild('carouselContainer') carouselContainer: ElementRef = null;
   currIndex = 0;
   safeHtml: SafeHtml;
   private currPage = 0;
+
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     if (this.trailers.length) {
@@ -33,24 +34,18 @@ export class TrailersComponent implements OnInit, AfterViewInit {
     }
   }
 
-  constructor(private sanitizer: DomSanitizer) {}
-
-  getEmbedUrl(key: string): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${key}`);
-  }
-
   getYouTubeVideoThumbnail(key: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`http://i3.ytimg.com/vi/${key}/maxresdefault.jpg`);
   }
 
-  prevTrailer() {
+  prevTrailer(): void {
     if (this.currPage > 0) {
       this.currPage--;
       this.moveSlider();
     }
   }
 
-  nextTrailer() {
+  nextTrailer(): void {
     if (this.currPage < this.trailers.length - 3) {
       this.currPage++;
       this.moveSlider();
@@ -64,10 +59,10 @@ export class TrailersComponent implements OnInit, AfterViewInit {
 
   private setSafeHtml(): void {
     const key = this.trailers[this.currIndex].key;
-    this.safeHtml = this.sanitizer.bypassSecurityTrustHtml('<iframe width="100%" height="500px" style="border: none" src="' + 'https://www.youtube.com/embed/' + key + '" ></iframe>');
+    this.safeHtml = this.sanitizer.bypassSecurityTrustHtml('<iframe width="100%" height="500px" style="border: none" src="' + 'https://www.youtube.com/embed/' + key + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
   }
 
-  private moveSlider() {
+  private moveSlider(): void {
     const size = this.carouselContainer.nativeElement.clientWidth / 3;
     this.carouselItems.nativeElement.style.transform = 'translateX(' + (-size * this.currPage) + 'px)';
   }

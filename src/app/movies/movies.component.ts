@@ -4,10 +4,21 @@ import {Observable} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {GenresService} from '../services/genres.service';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {Title} from '@angular/platform-browser';
 
-export interface Movie {
+export interface MoviesResponse {
+  page: number;
+  totalPages: number;
+  results: MovieShortInfo[];
+}
+
+export interface MovieShortInfo {
   id: number;
   title: string;
+  genres: string;
+  releaseDate: Date;
+  posterPath: string;
+  voteAverage: number;
 }
 
 @Component({
@@ -26,36 +37,45 @@ export interface Movie {
   ]
 })
 export class MoviesComponent implements OnInit {
-  response$: Observable<Movie[]>;
+  response$: Observable<MoviesResponse>;
   moviesPostersUrl = `https://image.tmdb.org/t/p/w500/`;
   genreId: number = null;
   currPage: number;
   searchString: string = null;
 
   constructor(
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private movieService: MoviesService,
-    private genresService: GenresService
+    private genresService: GenresService,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params: Params) => {
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.currPage = params.page ? params.page : 1;
       this.resetSearchString();
+      let currentPageTitle = null;
+
       if (params.with_genres) {
         this.genresService.getGenreIdByName(params.with_genres).subscribe(genreID => {
           this.genreId = genreID;
           this.response$ = this.movieService.getMoviesByGenre(this.genreId, this.currPage);
         });
+        currentPageTitle = 'Genre - '  + this.toCapitalizeString(params.with_genres) + ' | Movie Info';
       } else if (params.search) {
         this.response$ = this.movieService.getMoviesByKey(params.search, this.currPage);
         this.searchString = params.search;
+        currentPageTitle = params.search + ' - Search results | Movie Info';
       } else if (params.section) {
         this.response$ = this.movieService.getMoviesFromSection(params.section, this.currPage);
+        currentPageTitle = this.toCapitalizeString(params.section) + ' | Movie Info';
       } else {
         this.response$ = this.movieService.getMoviesFromSection('popular', this.currPage);
+        currentPageTitle = 'Movie Info';
       }
+
+      this.setPageTitle(currentPageTitle);
     });
   }
 
@@ -70,5 +90,13 @@ export class MoviesComponent implements OnInit {
 
   private resetSearchString(): void {
     this.searchString = null;
+  }
+
+  private setPageTitle(title: string): void {
+    this.titleService.setTitle(title);
+  }
+
+  private toCapitalizeString(str: string): string {
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   }
 }

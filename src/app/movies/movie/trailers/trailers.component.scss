@@ -84,7 +84,7 @@
         background-size: cover;
 
         &:disabled {
-          opacity: 0.2;
+          display: none;
         }
         &:not(:disabled) {
           cursor: pointer;

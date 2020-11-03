@@ -6,10 +6,17 @@
 
       <div class="similar-movies" #similarMovies>
         <div class="similar-movies-container" #similarMoviesContainer>
-          <div class="movie-item" *ngFor="let movie of response" [attr.id]="movie.id" (click)="onMovieClick($event)">
-            <img class="movie-poster" src="{{movie.poster ? moviesPostersUrl + movie.poster : '../../assets/images/noposter.jpg'}}" alt="{{movie.title}}">
+          <a
+            class="movie-item"
+            *ngFor="let movie of response"
+            [attr.id]="movie.id"
+            (click)="onMovieClick($event)">
+            <img
+              class="movie-poster"
+              src="{{movie.poster ? moviesPostersUrl + movie.poster : '../../assets/images/noposter.jpg'}}"
+              alt="{{movie.title}}">
             <div class="movie-title">{{movie.title}}</div>
-          </div>
+          </a>
         </div>
       </div>
 

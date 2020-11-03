@@ -3,9 +3,9 @@
     class="movie-container"
     *ngIf="movie$ | async as movie; else loading">
     <div
-      *ngIf="movie.backdrop_path"
+      *ngIf="movie.backdropPath"
       class="overflow"
-      style="background-image: url({{backdropUrl}}{{movie.backdrop_path}})"
+      style="background-image: url({{backdropUrl}}{{movie.backdropPath}})"
     ></div>
     <div class="movie-info" [@movie]="">
       <div class="movie-header">
@@ -13,16 +13,16 @@
           class="back-home-btn"
           (click)="onBackBtnClick()"
         ></a>
-        <h3 class="movie-title">{{movie.title}}</h3>
+        <div class="movie-title">{{movie.title}}</div>
         <div class="rating">
           <img src="../../../assets/images/star.png">
-          <span>{{movie.vote_average}}</span>
+          <span>{{movie.voteAverage}}</span>
         </div>
       </div>
       <div class="movie-poster">
         <img
           class="movie-backdrop-img"
-          src="{{movie.backdrop_path ? backdropUrl + movie.backdrop_path : '../assets/images/no-backdrop.jpg'}}">
+          src="{{movie.backdropPath ? backdropUrl + movie.backdropPath : '../assets/images/no-backdrop.jpg'}}">
         <div
           class="movie-tagline"
           *ngIf="movie.tagline"
@@ -40,11 +40,11 @@
           </tr>
           <tr>
             <td>Release date:</td>
-            <td>{{movie.release_date | date: 'dd MMMM yyyy'}}</td>
+            <td>{{movie.releaseDate | date: 'dd MMMM yyyy'}}</td>
           </tr>
           <tr>
             <td>Country:</td>
-            <td>{{movie.production_countries | countryList}}</td>
+            <td>{{movie.productionCountries | countryList}}</td>
           </tr>
           <tr>
             <td>Budget:</td>
@@ -64,7 +64,7 @@
           *ngIf="movie.overview">
           {{movie.overview}}
         </div>
-        <app-trailers [trailers]="movie.videos.results"></app-trailers>
+        <app-trailers [trailers]="movie.trailers"></app-trailers>
         <app-similar-movie-carousel [id]="movie.id"></app-similar-movie-carousel>
       </div>
   </div>

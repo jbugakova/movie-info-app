@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,10 @@ import {Router} from '@angular/router';
 export class HomeComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private titleService: Title) {
+    this.titleService.setTitle('Movie Info');
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({

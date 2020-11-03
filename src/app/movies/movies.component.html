@@ -5,23 +5,23 @@
   class="movies-container"
   *ngIf="response$ | async as response; else loading">
   <div class="no-movies" *ngIf="response.results.length < 1">There are no movies with this title.</div>
-  <div
+  <a
     class="movie-item"
     [@movie]=""
     *ngFor="let movie of response.results | paginate: { itemsPerPage: 20,
                                                               currentPage: response.page,
-                                                              totalItems: response.total_pages*20 }"
+                                                              totalItems: response.totalPages*20 }"
     [routerLink]="['movie', movie.id]">
     <div class="poster">
-      <img src="{{movie.poster_path ? moviesPostersUrl + movie.poster_path : '../assets/images/noposter.jpg'}}">
-      <div class="rating">{{movie.vote_average}}</div>
+      <img src="{{movie.posterPath ? moviesPostersUrl + movie.posterPath : '../assets/images/noposter.jpg'}}">
+      <div class="rating">{{movie.voteAverage}}</div>
     </div>
     <div class="movie-details">
       <div class="title">{{movie.title}}</div>
       <div class="genre">{{movie.genres}}</div>
-      <div class="year">{{movie.release_date | date:'yyyy'}}</div>
+      <div class="year">{{movie.releaseDate | date:'yyyy'}}</div>
     </div>
-  </div>
+  </a>
 </div>
 <pagination-controls (pageChange)="pageChanged($event)"
                      directionLinks="true"

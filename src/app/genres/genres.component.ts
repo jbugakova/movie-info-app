@@ -20,12 +20,12 @@ export class GenresComponent implements OnInit {
   constructor(
     private genresService: GenresService,
     private router: Router,
-    private route: ActivatedRoute
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.genres$ = this.genresService.getAll();
-    this.route.queryParams.subscribe((params: Params) => {
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
       if (params.with_genres) {
         this.genresService.getGenreIdByName(params.with_genres).subscribe(genreID => {
           this.currGenreId = genreID;
@@ -37,9 +37,10 @@ export class GenresComponent implements OnInit {
   }
 
   onGenreClick(event: any): void {
+    const genre = event.target.innerText;
     this.router.navigate(['/movies'], {
       queryParams: {
-        with_genres: event.target.innerText.toLowerCase()
+        with_genres: genre.toLowerCase()
       }
     });
   }
