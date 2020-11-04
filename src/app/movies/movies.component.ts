@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {GenresService} from '../services/genres.service';
 import {animate, style, transition, trigger} from '@angular/animations';
-import {Title} from '@angular/platform-browser';
+import {DomSanitizer, SafeUrl, Title} from '@angular/platform-browser';
 
 export interface MoviesResponse {
   page: number;
@@ -38,7 +38,6 @@ export interface MovieShortInfo {
 })
 export class MoviesComponent implements OnInit {
   response$: Observable<MoviesResponse>;
-  moviesPostersUrl = `https://image.tmdb.org/t/p/w500/`;
   genreId: number = null;
   currPage: number;
   searchString: string = null;
@@ -48,7 +47,8 @@ export class MoviesComponent implements OnInit {
     private router: Router,
     private movieService: MoviesService,
     private genresService: GenresService,
-    private titleService: Title
+    private titleService: Title,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -86,6 +86,14 @@ export class MoviesComponent implements OnInit {
       queryParams: {page: this.currPage},
       queryParamsHandling: "merge"
     });
+  }
+
+  getPosterUrl(posterKey: string): SafeUrl {
+    if (posterKey) {
+      return this.sanitizer.bypassSecurityTrustUrl('https://image.tmdb.org/t/p/w500/' + posterKey);
+    } else {
+      return '../assets/images/noposter.jpg';
+    }
   }
 
   private resetSearchString(): void {

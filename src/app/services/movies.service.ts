@@ -75,7 +75,12 @@ export class MoviesService {
           budget: movie.budget,
           revenue: movie.revenue,
           overview: movie.overview,
-          trailers: movie.videos.results
+          trailers: movie.videos.results.map(trailer => {
+            return {
+              name: trailer.name,
+              key: trailer.key
+            };
+          })
         };
     }));
   }

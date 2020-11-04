@@ -2,6 +2,7 @@ import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {MoviesService} from '../../../services/movies.service';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 
 export interface SimilarMovie {
   id: number;
@@ -20,9 +21,12 @@ export class SimilarMovieCarouselComponent implements OnInit {
   @ViewChild('similarMovies') similarMovies: ElementRef = null;
   response$: Observable<SimilarMovie[]>;
   currPage = 0;
-  moviesPostersUrl = 'https://image.tmdb.org/t/p/w500/';
 
-  constructor(private moviesService: MoviesService, private router: Router) {}
+  constructor(
+    private moviesService: MoviesService,
+    private router: Router,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit(): void {
     this.response$ = this.moviesService.getSimilarMovies(this.id);
@@ -52,5 +56,13 @@ export class SimilarMovieCarouselComponent implements OnInit {
   moveSlider(): void {
     const size = this.similarMovies.nativeElement.clientWidth;
     this.similarMoviesContainer.nativeElement.style.transform = 'translateX(' + (-size * this.currPage) + 'px)';
+  }
+
+  getPosterUrl(posterKey: string): SafeUrl {
+    if (posterKey) {
+      return this.sanitizer.bypassSecurityTrustUrl('https://image.tmdb.org/t/p/w500/' + posterKey);
+    } else {
+      return '../../assets/images/noposter.jpg';
+    }
   }
 }

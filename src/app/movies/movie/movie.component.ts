@@ -5,8 +5,9 @@ import {switchMap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {MoviesService} from '../../services/movies.service';
 import {animate, style, transition, trigger} from '@angular/animations';
-import {Title} from '@angular/platform-browser';
+import {DomSanitizer, SafeUrl, Title} from '@angular/platform-browser';
 import {Genre} from '../../genres/genres.component';
+import {Trailer} from './trailers/trailers.component';
 
 export interface DetailedMovie {
   id: number;
@@ -24,11 +25,6 @@ export interface DetailedMovie {
   trailers: Trailer[];
 }
 
-export interface Trailer {
-  key: string;
-  name: string;
-}
-
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -39,13 +35,20 @@ export interface Trailer {
         style({
           opacity: 0
         }),
-        animate('1000ms ease-out')
+        animate('800ms ease-out')
+      ])
+    ]),
+    trigger('movieBackground', [
+      transition('void => *', [
+        style({
+          opacity: 0
+        }),
+        animate('5000ms ease-out')
       ])
     ])
   ]
 })
 export class MovieComponent implements OnInit {
-  backdropUrl = 'https://image.tmdb.org/t/p/w1280';
   movie$: Observable<DetailedMovie>;
 
   constructor(
@@ -53,7 +56,8 @@ export class MovieComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private location: Location,
     private moviesService: MoviesService,
-    private titleService: Title
+    private titleService: Title,
+    private sanitizer: DomSanitizer
   ) {
   }
 
@@ -63,10 +67,18 @@ export class MovieComponent implements OnInit {
                         return this.moviesService.getMovieById(params['id']);
                       }));
 
-    this.movie$.subscribe(movie => { this.titleService.setTitle(movie.title + ' | Movie Info'); });
+    this.movie$.subscribe(movie => {
+      this.titleService.setTitle(movie.title + ' | Movie Info');
+    });
   }
 
   onBackBtnClick(): void {
     this.location.back();
+  }
+
+  getBackdropUrl(backdropKey: string): SafeUrl {
+    if (backdropKey) {
+      return this.sanitizer.bypassSecurityTrustUrl('https://image.tmdb.org/t/p/w1280' + backdropKey);
+    }
   }
 }

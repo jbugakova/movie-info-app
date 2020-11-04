@@ -2,12 +2,15 @@
   <div
     class="movie-container"
     *ngIf="movie$ | async as movie; else loading">
-    <div
-      *ngIf="movie.backdropPath"
-      class="overflow"
-      style="background-image: url({{backdropUrl}}{{movie.backdropPath}})"
-    ></div>
-    <div class="movie-info" [@movie]="">
+    <div class="overflow">
+      <img
+        [src]="getBackdropUrl(movie.backdropPath)"
+        [@movieBackground]
+        *ngIf="movie.backdropPath"
+      >
+    </div>
+
+    <div class="movie-info" [@movie]>
       <div class="movie-header">
         <a
           class="back-home-btn"
@@ -22,7 +25,7 @@
       <div class="movie-poster">
         <img
           class="movie-backdrop-img"
-          src="{{movie.backdropPath ? backdropUrl + movie.backdropPath : '../assets/images/no-backdrop.jpg'}}">
+          [src]="getBackdropUrl(movie.backdropPath)">
         <div
           class="movie-tagline"
           *ngIf="movie.tagline"

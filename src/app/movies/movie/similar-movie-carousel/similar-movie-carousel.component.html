@@ -1,5 +1,5 @@
 <div class="similar-movies-container" *ngIf="response$ | async as response">
-  <div *ngIf="response.length">
+  <div *ngIf="response.length && response.length === 20">
     <h1 class="title">{{response.length}} Similar movies:</h1>
 
     <div class="similar-movies-carousel">
@@ -13,7 +13,7 @@
             (click)="onMovieClick($event)">
             <img
               class="movie-poster"
-              src="{{movie.poster ? moviesPostersUrl + movie.poster : '../../assets/images/noposter.jpg'}}"
+              [src]="getPosterUrl(movie.poster)"
               alt="{{movie.title}}">
             <div class="movie-title">{{movie.title}}</div>
           </a>
@@ -22,7 +22,7 @@
 
       <div class="navs">
         <button class="prev-btn" (click)="prevMoviesPage()" [disabled]="this.currPage == 0"></button>
-        <button class="next-btn" (click)="nextMoviesPage()" [disabled]="this.currPage == response.length/5 - 1"></button>
+        <button class="next-btn" (click)="nextMoviesPage()" [disabled]="this.currPage == response.length/5 - 1 || response.length <= 5"></button>
       </div>
 
     </div>

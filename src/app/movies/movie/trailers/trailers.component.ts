@@ -2,9 +2,8 @@ import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@a
 import {DomSanitizer, SafeHtml, SafeResourceUrl} from '@angular/platform-browser';
 
 export interface Trailer {
-  name: string;
-  type: string;
   key: string;
+  name: string;
 }
 
 @Component({
@@ -12,6 +11,7 @@ export interface Trailer {
   templateUrl: './trailers.component.html',
   styleUrls: ['./trailers.component.scss']
 })
+
 export class TrailersComponent implements OnInit, AfterViewInit {
   @Input() trailers: Trailer[];
   @ViewChild('carouselItems') carouselItems: ElementRef = null;
@@ -35,7 +35,7 @@ export class TrailersComponent implements OnInit, AfterViewInit {
   }
 
   getYouTubeVideoThumbnail(key: string): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`http://i3.ytimg.com/vi/${key}/maxresdefault.jpg`);
+    return this.sanitizer.bypassSecurityTrustUrl(`http://i3.ytimg.com/vi/${key}/maxresdefault.jpg`);
   }
 
   prevTrailer(): void {
@@ -59,7 +59,7 @@ export class TrailersComponent implements OnInit, AfterViewInit {
 
   private setSafeHtml(): void {
     const key = this.trailers[this.currIndex].key;
-    this.safeHtml = this.sanitizer.bypassSecurityTrustHtml('<iframe width="100%" height="500px" style="border: none" src="' + 'https://www.youtube.com/embed/' + key + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+    this.safeHtml = this.sanitizer.bypassSecurityTrustHtml('<iframe width="100%" height="500px" style="border: none" src="' + 'https://www.youtube.com/embed/' + key + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>');
   }
 
   private moveSlider(): void {
