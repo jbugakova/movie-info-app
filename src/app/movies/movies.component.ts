@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {MoviesService} from '../services/movies.service';
 import {Observable} from 'rxjs';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Params, Router} from '@angular/router';
 import {GenresService} from '../services/genres.service';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {DomSanitizer, SafeUrl, Title} from '@angular/platform-browser';
+import {filter} from 'rxjs/operators';
 
 export interface MoviesResponse {
   page: number;
@@ -49,9 +50,14 @@ export class MoviesComponent implements OnInit {
     private genresService: GenresService,
     private titleService: Title,
     private sanitizer: DomSanitizer
-  ) {}
+  ) {
+    router.events.pipe(filter(e => e instanceof NavigationEnd && e.url.indexOf('movies') > -1)).subscribe(() => {
+      this.saveCurrUrl();
+    });
+  }
 
   ngOnInit(): void {
+    this.saveCurrUrl();
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.currPage = params.page ? params.page : 1;
       this.resetSearchString();
@@ -77,6 +83,10 @@ export class MoviesComponent implements OnInit {
 
       this.setPageTitle(currentPageTitle);
     });
+  }
+
+  private saveCurrUrl(): void {
+    sessionStorage.setItem('currHomeUrl', this.router.url);
   }
 
   pageChanged(event: any): void {

@@ -1,4 +1,8 @@
 <div class="container">
+  <a
+    class="prev-page-btn"
+    (click)="onPrevPageClick()"
+  >Previous Page</a>
   <div
     class="movie-container"
     *ngIf="movie$ | async as movie; else loading">
@@ -14,7 +18,8 @@
       <div class="movie-header">
         <a
           class="back-home-btn"
-          (click)="onBackBtnClick()"
+          title="Home Page"
+          (click)="onHomeBtnClick()"
         ></a>
         <div class="movie-title">{{movie.title}}</div>
         <div class="rating">

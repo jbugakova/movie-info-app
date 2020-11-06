@@ -35,7 +35,7 @@ export interface DetailedMovie {
         style({
           opacity: 0
         }),
-        animate('800ms ease-out')
+        animate('1000ms ease-out')
       ])
     ]),
     trigger('movieBackground', [
@@ -43,7 +43,7 @@ export interface DetailedMovie {
         style({
           opacity: 0
         }),
-        animate('5000ms ease-out')
+        animate('2000ms ease-out')
       ])
     ])
   ]
@@ -58,8 +58,7 @@ export class MovieComponent implements OnInit {
     private moviesService: MoviesService,
     private titleService: Title,
     private sanitizer: DomSanitizer
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.movie$ = this.activatedRoute.params
@@ -72,7 +71,11 @@ export class MovieComponent implements OnInit {
     });
   }
 
-  onBackBtnClick(): void {
+  onHomeBtnClick(): void {
+    this.router.navigateByUrl(sessionStorage.getItem('currHomeUrl'));
+  }
+
+  onPrevPageClick(): void {
     this.location.back();
   }
 
