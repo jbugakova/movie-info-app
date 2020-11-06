@@ -33,7 +33,8 @@ export class SimilarMovieCarouselComponent implements OnInit {
   }
 
   onMovieClick(event: any): void {
-    const id = event.target.parentElement.getAttribute('id');
+    const target = event.target.classList.contains('movie-item') ? event.target : event.target.parentElement;
+    const id = target.getAttribute('id');
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.navigate(['movie/' + id]);
   }

@@ -82,6 +82,8 @@ export class MovieComponent implements OnInit {
   getBackdropUrl(backdropKey: string): SafeUrl {
     if (backdropKey) {
       return this.sanitizer.bypassSecurityTrustUrl('https://image.tmdb.org/t/p/w1280' + backdropKey);
+    } else {
+      return '../../../assets/images/no-backdrop.jpg';
     }
   }
 }
