@@ -78,10 +78,10 @@
       }
     }
   }
-  &::after {
-    content: "";
-    flex: auto;
-  }
+  //&::after {
+  //  content: "";
+  //  flex: auto;
+  //}
 }
 
 .movies-pagination::ng-deep .ngx-pagination {
@@ -108,5 +108,145 @@
   .disabled {
     color: #8f9599;
   }
+  &.responsive .small-screen {
+    color: #fff;
+  }
 }
 
+@media (max-width: 1470px) {
+  .movies-container {
+    width: calc(100vw - 200px);
+  }
+}
+
+@media (max-width: 1360px) {
+  .movies-container .movie-item .poster {
+      width: 220px;
+      height: 325px;
+  }
+}
+
+@media (max-width: 1285px) {
+  .movies-container .movie-item .poster {
+      width: 200px;
+      height: 300px;
+  }
+}
+
+@media (max-width: 1245px) {
+  .movies-container {
+    justify-content: space-around;
+
+    .movie-item {
+      flex: 0 0 20%;
+
+      .poster {
+        width: 170px;
+        height: 270px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1085px) {
+  .movies-container {
+    width: 100%;
+    padding: 10px;
+
+    .movie-item {
+      flex: 0 0 18%;
+
+      .poster {
+      width: 170px;
+      height: 270px;
+    }
+    }
+  }
+}
+
+@media (max-width: 865px) {
+  .movies-container {
+    .movie-item {
+      flex: 0 0 18%;
+
+      .poster {
+        width: 150px;
+        height: 240px;
+      }
+    }
+  }
+}
+
+@media (max-width: 785px) {
+  .movies-container {
+    .movie-item .poster {
+      width: 130px;
+      height: 200px;
+    }
+  }
+}
+
+@media (max-width: 725px) {
+  .movies-container {
+    .movie-item {
+      flex: 0 0 43%;
+
+      .poster {
+        width: 260px;
+        height: 340px;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .movies-container {
+    .movie-item {
+      flex: 0 0 40%;
+
+      .poster {
+        width: 200px;
+        height: 300px;
+      }
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .movies-container {
+    .movie-item {
+      flex: 0 0 35%;
+
+      .poster {
+        width: 150px;
+        height: 220px;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .movies-container {
+    .movie-item .poster {
+      width: 120px;
+      height: 190px;
+
+      .rating {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 11px;
+        right: -15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .movies-container {
+    .movie-item .poster {
+      width: 110px;
+      height: 150px;
+    }
+  }
+}

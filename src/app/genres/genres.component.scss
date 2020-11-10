@@ -25,16 +25,49 @@
     &:hover {
       background-color: #2c3c46;
       cursor: pointer;
-      border-left: 3px solid #1c8d72;
       color: #fff;
-      padding-left: 40px;
     }
+    &.active {
+      background-color: #2c3c46;
+      color: #f98f01;
+    }
+    &:hover,
     &.active {
       padding-left: 40px;
       border-left: 3px solid #1c8d72;
-      background-color: #2c3c46;
-      color: #f98f01;
     }
   }
 }
 
+@media (max-width: 1085px) {
+  .genres-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+
+    .genre-item {
+      padding: 10px;
+
+      &:hover {
+        cursor: pointer;
+        color: #fff;
+      }
+      &.active {
+        color: #f98f01;
+      }
+      &:hover,
+      &.active {
+        padding-left: 10px;
+        background-color: #2c3c46;
+        border-left: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .genres-sidebar .genre-item {
+    padding: 5px 10px;
+  }
+}
