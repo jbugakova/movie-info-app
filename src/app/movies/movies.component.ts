@@ -32,7 +32,7 @@ export interface MovieShortInfo {
         style({
           opacity: 0
         }),
-        animate('2000ms 250ms ease-out')
+        animate('500ms 250ms ease-out')
       ])
     ])
   ]

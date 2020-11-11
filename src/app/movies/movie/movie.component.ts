@@ -35,7 +35,7 @@ export interface DetailedMovie {
         style({
           opacity: 0
         }),
-        animate('1000ms 250ms ease-out')
+        animate('500ms 250ms ease-out')
       ])
     ]),
     trigger('movieBackground', [
@@ -43,7 +43,7 @@ export interface DetailedMovie {
         style({
           opacity: 0
         }),
-        animate('2000ms ease-out')
+        animate('500ms 200ms ease-out')
       ])
     ])
   ]

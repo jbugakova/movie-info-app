@@ -2,7 +2,7 @@
   <a
     class="prev-page-btn"
     (click)="onPrevPageClick()"
-  >Previous Page</a>
+  ></a>
   <div
     class="movie-container"
     *ngIf="movie$ | async as movie; else loading">
@@ -76,9 +76,8 @@
       </div>
   </div>
 </div>
-
 <ng-template #loading>
   <div class="loader-container">
-    <div class="loader">Loading...</div>
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
   </div>
 </ng-template>

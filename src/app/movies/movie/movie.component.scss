@@ -2,7 +2,6 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-width: 800px;
   min-height: 100vh;
   background: #132330;
   background: linear-gradient(94deg, #132330 0%, #17232c 32%, #273f4d 100%);
@@ -12,24 +11,19 @@
     position: fixed;
     bottom: 2rem;
     left: 3rem;
-    padding: 10px 10px 10px 50px;
     border-radius: 3px;
-    color: #fff;
-    font-size: 16px;
-    line-height: 30px;
-    letter-spacing: 1px;
-    text-shadow: 2px 1px 3px #000;
-    transition: all 0.3s ease-in-out;
     border: 2px solid #fff;
+    transition: all 0.3s ease-in-out;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.9);
     background-image: url("../../../assets/images/back.png");
     background-repeat: no-repeat;
     background-position: top 50% left 5px;
-    background-size: 15%;
+    background-size: 70%;
+    width: 40px;
+    height: 40px;
 
     &:hover {
       cursor: pointer;
-      text-shadow: none;
       box-shadow: none;
       border-color: #f98f01;
       background-color: #f98f01;
@@ -54,8 +48,7 @@
     .movie-info {
       position: relative;
       margin: 0 auto;
-      width: 60%;
-      max-width: 920px;
+      width: 920px;
       background-color: #1f2931;
       box-shadow: 0px 0px 20px 0px #131313;
       color: #fff;
@@ -167,8 +160,9 @@
   }
 }
 
-@media (max-width: 786px) {
-  .container .movie-container .overflow {
-    display: none;
+@media (max-width: 1150px) {
+  .container .prev-page-btn {
+    left: 10px;
+    bottom: 100px;
   }
 }
