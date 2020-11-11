@@ -1,4 +1,8 @@
-<div class="dropdown-container">
+<div
+  class="dropdown-container"
+  (click)="activeList = !activeList"
+  [class.active]="activeList"
+>
   <div class="chosen-dropdown-item">
     <span>{{currentItem}}</span>
     <img class="arrow-down-image" src="../../assets/images/arrow-down.png">

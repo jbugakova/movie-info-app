@@ -51,12 +51,12 @@
       }
     }
   }
-  &:hover .dropdown-list-container {
+  &.active .dropdown-list-container {
     visibility: visible;
     opacity: 1;
     transform: scaleY(1);
   }
-  &:hover .chosen-dropdown-item .arrow-down-image {
+  &.active .chosen-dropdown-item .arrow-down-image {
     transform: rotate(-180deg);
   }
 }

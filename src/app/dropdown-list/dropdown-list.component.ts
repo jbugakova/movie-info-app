@@ -9,6 +9,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 export class DropdownListComponent implements OnInit {
   currentItem: string;
   listItems: string[] = ['Popular', 'Now Playing', 'Top Rated', 'Upcoming'];
+  activeList = false;
 
   constructor(
     private router: Router,
