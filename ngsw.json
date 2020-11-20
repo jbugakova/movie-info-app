@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1605882020303,
+  "timestamp": 1605883220911,
   "index": "https://jbugakova.github.io/movie-info-app/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "https://jbugakova.github.io/movie-info-app/index.html",
-        "https://jbugakova.github.io/movie-info-app/main.6e7a6345f6002ebe1c16.js",
+        "https://jbugakova.github.io/movie-info-app/main.8ae5a6c2c2726aebf5a4.js",
         "https://jbugakova.github.io/movie-info-app/manifest.webmanifest",
         "https://jbugakova.github.io/movie-info-app/polyfills.35a5ca1855eb057f016a.js",
         "https://jbugakova.github.io/movie-info-app/runtime.acf0dec4155e77772545.js",
@@ -62,20 +62,7 @@
       "patterns": []
     }
   ],
-  "dataGroups": [
-    {
-      "name": "tmdb-genres",
-      "patterns": [
-        "https:\\/\\/api\\.themoviedb\\.org\\/3\\/genre\\/movie\\/list\\?api_key=3c93374fe9c1db152032fd5ffd96823d"
-      ],
-      "strategy": "performance",
-      "maxAge": 0,
-      "cacheQueryOptions": {
-        "ignoreVary": true
-      },
-      "version": 1
-    }
-  ],
+  "dataGroups": [],
   "hashTable": {
     "https://jbugakova.github.io/movie-info-app/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "https://jbugakova.github.io/movie-info-app/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
@@ -100,9 +87,9 @@
     "https://jbugakova.github.io/movie-info-app/back.d79bcbfaf6d883018aff.png": "f0147d404dd4810b690ac5ab81ea1dd2ff3c6d06",
     "https://jbugakova.github.io/movie-info-app/favicon.png": "b75232f1ec486379b040dc23e9ab87dd62ded3d9",
     "https://jbugakova.github.io/movie-info-app/home.ab0357be6cb6956b5e8a.png": "d76fad17a05954807e5704537c481f2722af2879",
-    "https://jbugakova.github.io/movie-info-app/index.html": "ccc0afe47758081022b54f59a91a1d707d5d1a83",
+    "https://jbugakova.github.io/movie-info-app/index.html": "aa28f316b9e6d7fca940262c3d5b1d152c579806",
     "https://jbugakova.github.io/movie-info-app/loupe_icon.bcfa09ebcddcbd2a4e22.png": "28930580e8d58b51f6720a9944b8f5269968fa0c",
-    "https://jbugakova.github.io/movie-info-app/main.6e7a6345f6002ebe1c16.js": "e422edeee5f726a42d35993c91b7e0182f498608",
+    "https://jbugakova.github.io/movie-info-app/main.8ae5a6c2c2726aebf5a4.js": "0fabfd167ceeceac1b6c2859f5af64c4b372ba13",
     "https://jbugakova.github.io/movie-info-app/manifest.webmanifest": "d9135257afff7ac6e8a37e60c83fd4529dd1b5e7",
     "https://jbugakova.github.io/movie-info-app/next-btn.1d73f6b4c43ea676d8c5.png": "bc26eb22793d49fb07e251462d9700f769bb6333",
     "https://jbugakova.github.io/movie-info-app/polyfills.35a5ca1855eb057f016a.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
