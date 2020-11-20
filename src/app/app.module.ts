@@ -19,6 +19,8 @@ import {ScrollModule} from './scroll.module';
 import { DropdownListComponent } from './dropdown-list/dropdown-list.component';
 import {TrailersComponent} from './movie/trailers/trailers.component';
 import {SimilarMovieCarouselComponent} from './movie/similar-movie-carousel/similar-movie-carousel.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import {SimilarMovieCarouselComponent} from './movie/similar-movie-carousel/simi
     NgxPaginationModule,
     AppRoutingModule,
     ScrollModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
