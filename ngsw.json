@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1605881501356,
+  "timestamp": 1605882020303,
   "index": "https://jbugakova.github.io/movie-info-app/index.html",
   "assetGroups": [
     {
@@ -62,7 +62,20 @@
       "patterns": []
     }
   ],
-  "dataGroups": [],
+  "dataGroups": [
+    {
+      "name": "tmdb-genres",
+      "patterns": [
+        "https:\\/\\/api\\.themoviedb\\.org\\/3\\/genre\\/movie\\/list\\?api_key=3c93374fe9c1db152032fd5ffd96823d"
+      ],
+      "strategy": "performance",
+      "maxAge": 0,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
   "hashTable": {
     "https://jbugakova.github.io/movie-info-app/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "https://jbugakova.github.io/movie-info-app/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
