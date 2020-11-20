@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1605877845375,
+  "timestamp": 1605879564140,
   "index": "https://jbugakova.github.io/movie-info-app/index.html",
   "assetGroups": [
     {
@@ -12,11 +12,11 @@
       },
       "urls": [
         "https://jbugakova.github.io/movie-info-app/index.html",
-        "https://jbugakova.github.io/movie-info-app/main.a84e4aeda967867307a6.js",
+        "https://jbugakova.github.io/movie-info-app/main.493a7e865046dd6816ff.js",
         "https://jbugakova.github.io/movie-info-app/manifest.webmanifest",
         "https://jbugakova.github.io/movie-info-app/polyfills.35a5ca1855eb057f016a.js",
         "https://jbugakova.github.io/movie-info-app/runtime.acf0dec4155e77772545.js",
-        "https://jbugakova.github.io/movie-info-app/styles.ca6baacf83975785ef77.css"
+        "https://jbugakova.github.io/movie-info-app/styles.a2292ec99dd22c767670.css"
       ],
       "patterns": [
         "https:\\/\\/fonts\\.googleapis\\.com\\/css2\\?family=Lato:wght@400;700;900&display=swap"
@@ -87,9 +87,9 @@
     "https://jbugakova.github.io/movie-info-app/back.d79bcbfaf6d883018aff.png": "f0147d404dd4810b690ac5ab81ea1dd2ff3c6d06",
     "https://jbugakova.github.io/movie-info-app/favicon.png": "b75232f1ec486379b040dc23e9ab87dd62ded3d9",
     "https://jbugakova.github.io/movie-info-app/home.ab0357be6cb6956b5e8a.png": "d76fad17a05954807e5704537c481f2722af2879",
-    "https://jbugakova.github.io/movie-info-app/index.html": "28613dc8fe929e035e0034a40edd2d59691c7675",
+    "https://jbugakova.github.io/movie-info-app/index.html": "5fa0e7809b1956a82bc4e46741d70edc81470ad3",
     "https://jbugakova.github.io/movie-info-app/loupe_icon.bcfa09ebcddcbd2a4e22.png": "28930580e8d58b51f6720a9944b8f5269968fa0c",
-    "https://jbugakova.github.io/movie-info-app/main.a84e4aeda967867307a6.js": "1d7db6c02c3e7d377ea9550c339c0d95392dc462",
+    "https://jbugakova.github.io/movie-info-app/main.493a7e865046dd6816ff.js": "45c48ce1ce1b16fb3d75fc2cd23188936d09469b",
     "https://jbugakova.github.io/movie-info-app/manifest.webmanifest": "d9135257afff7ac6e8a37e60c83fd4529dd1b5e7",
     "https://jbugakova.github.io/movie-info-app/next-btn.1d73f6b4c43ea676d8c5.png": "bc26eb22793d49fb07e251462d9700f769bb6333",
     "https://jbugakova.github.io/movie-info-app/polyfills.35a5ca1855eb057f016a.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
@@ -97,7 +97,7 @@
     "https://jbugakova.github.io/movie-info-app/runtime.acf0dec4155e77772545.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "https://jbugakova.github.io/movie-info-app/similar-movies-arrow-left.d9d5033eb81a103d6453.png": "0f3a00d6302537f43481d07859ad830963de89b8",
     "https://jbugakova.github.io/movie-info-app/similar-movies-arrow-right.f3c13b6b7bd3f87b75ce.png": "c897ad613e6aec186f6d424310a5bfa8fad27772",
-    "https://jbugakova.github.io/movie-info-app/styles.ca6baacf83975785ef77.css": "2b068d9ad19910fd7ee57bc28e9aef53047e3cc7"
+    "https://jbugakova.github.io/movie-info-app/styles.a2292ec99dd22c767670.css": "feb3e9047d120315d764c82f44cd99858cfec2b2"
   },
   "navigationUrls": [
     {
