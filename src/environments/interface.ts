@@ -1,16 +1,22 @@
-
-export interface SimilarMovie {
-  id: number;
-  title: string;
-  poster: string;
-}
-
-
 export interface Genre {
   name: string;
   id: number;
 }
 
+export interface MovieShortInfo {
+  id: number;
+  title: string;
+  genres: string;
+  releaseDate: Date;
+  posterPath: string;
+  voteAverage: number;
+}
+
+export interface MoviesResponse {
+  page: number;
+  totalPages: number;
+  results: MovieShortInfo[];
+}
 
 export interface DetailedMovie {
   id: number;
@@ -28,24 +34,13 @@ export interface DetailedMovie {
   trailers: Trailer[];
 }
 
-
 export interface Trailer {
   key: string;
   name: string;
 }
 
-
-export interface MoviesResponse {
-  page: number;
-  totalPages: number;
-  results: MovieShortInfo[];
-}
-
-export interface MovieShortInfo {
+export interface SimilarMovie {
   id: number;
   title: string;
-  genres: string;
-  releaseDate: Date;
-  posterPath: string;
-  voteAverage: number;
+  poster: string;
 }
