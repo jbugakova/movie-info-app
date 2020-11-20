@@ -1,0 +1,120 @@
+{
+  "configVersion": 1,
+  "timestamp": 1605867512443,
+  "index": "https://jbugakova.github.io/movie-info-app/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://jbugakova.github.io/movie-info-app/index.html",
+        "https://jbugakova.github.io/movie-info-app/main.41c52b55787d086d41f3.js",
+        "https://jbugakova.github.io/movie-info-app/manifest.webmanifest",
+        "https://jbugakova.github.io/movie-info-app/polyfills.35a5ca1855eb057f016a.js",
+        "https://jbugakova.github.io/movie-info-app/runtime.acf0dec4155e77772545.js",
+        "https://jbugakova.github.io/movie-info-app/styles.a2292ec99dd22c767670.css"
+      ],
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/css2\\?family=Lato:wght@400;700;900&display=swap"
+      ]
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://jbugakova.github.io/movie-info-app/assets/icons/icon-128x128.png",
+        "https://jbugakova.github.io/movie-info-app/assets/icons/icon-144x144.png",
+        "https://jbugakova.github.io/movie-info-app/assets/icons/icon-152x152.png",
+        "https://jbugakova.github.io/movie-info-app/assets/icons/icon-192x192.png",
+        "https://jbugakova.github.io/movie-info-app/assets/icons/icon-384x384.png",
+        "https://jbugakova.github.io/movie-info-app/assets/icons/icon-512x512.png",
+        "https://jbugakova.github.io/movie-info-app/assets/icons/icon-72x72.png",
+        "https://jbugakova.github.io/movie-info-app/assets/icons/icon-96x96.png",
+        "https://jbugakova.github.io/movie-info-app/assets/images/arrow-down.png",
+        "https://jbugakova.github.io/movie-info-app/assets/images/back.png",
+        "https://jbugakova.github.io/movie-info-app/assets/images/home.png",
+        "https://jbugakova.github.io/movie-info-app/assets/images/loupe_icon.png",
+        "https://jbugakova.github.io/movie-info-app/assets/images/next-btn.png",
+        "https://jbugakova.github.io/movie-info-app/assets/images/no-backdrop.jpg",
+        "https://jbugakova.github.io/movie-info-app/assets/images/noposter.jpg",
+        "https://jbugakova.github.io/movie-info-app/assets/images/prev-btn.png",
+        "https://jbugakova.github.io/movie-info-app/assets/images/similar-movies-arrow-left.png",
+        "https://jbugakova.github.io/movie-info-app/assets/images/similar-movies-arrow-right.png",
+        "https://jbugakova.github.io/movie-info-app/assets/images/star.png",
+        "https://jbugakova.github.io/movie-info-app/assets/images/tmdb.png",
+        "https://jbugakova.github.io/movie-info-app/back.d79bcbfaf6d883018aff.png",
+        "https://jbugakova.github.io/movie-info-app/favicon.png",
+        "https://jbugakova.github.io/movie-info-app/home.ab0357be6cb6956b5e8a.png",
+        "https://jbugakova.github.io/movie-info-app/loupe_icon.bcfa09ebcddcbd2a4e22.png",
+        "https://jbugakova.github.io/movie-info-app/next-btn.1d73f6b4c43ea676d8c5.png",
+        "https://jbugakova.github.io/movie-info-app/prev-btn.2cb14372901630510376.png",
+        "https://jbugakova.github.io/movie-info-app/similar-movies-arrow-left.d9d5033eb81a103d6453.png",
+        "https://jbugakova.github.io/movie-info-app/similar-movies-arrow-right.f3c13b6b7bd3f87b75ce.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://jbugakova.github.io/movie-info-app/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://jbugakova.github.io/movie-info-app/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://jbugakova.github.io/movie-info-app/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://jbugakova.github.io/movie-info-app/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://jbugakova.github.io/movie-info-app/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://jbugakova.github.io/movie-info-app/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://jbugakova.github.io/movie-info-app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://jbugakova.github.io/movie-info-app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://jbugakova.github.io/movie-info-app/assets/images/arrow-down.png": "7db08c1b029d4faac2fa98d52a87afd7a5b0d778",
+    "https://jbugakova.github.io/movie-info-app/assets/images/back.png": "f0147d404dd4810b690ac5ab81ea1dd2ff3c6d06",
+    "https://jbugakova.github.io/movie-info-app/assets/images/home.png": "d76fad17a05954807e5704537c481f2722af2879",
+    "https://jbugakova.github.io/movie-info-app/assets/images/loupe_icon.png": "28930580e8d58b51f6720a9944b8f5269968fa0c",
+    "https://jbugakova.github.io/movie-info-app/assets/images/next-btn.png": "bc26eb22793d49fb07e251462d9700f769bb6333",
+    "https://jbugakova.github.io/movie-info-app/assets/images/no-backdrop.jpg": "54b7b2373d782bbd3f10c7fa52ca27505456164b",
+    "https://jbugakova.github.io/movie-info-app/assets/images/noposter.jpg": "7e4c01bf865b3b63a4c8491bc06529ba741afc4d",
+    "https://jbugakova.github.io/movie-info-app/assets/images/prev-btn.png": "df6aa3e9ae0bf653cbb5ea82bf52fe311a5e3e67",
+    "https://jbugakova.github.io/movie-info-app/assets/images/similar-movies-arrow-left.png": "0f3a00d6302537f43481d07859ad830963de89b8",
+    "https://jbugakova.github.io/movie-info-app/assets/images/similar-movies-arrow-right.png": "c897ad613e6aec186f6d424310a5bfa8fad27772",
+    "https://jbugakova.github.io/movie-info-app/assets/images/star.png": "539a1e4f8269d118ec5f39a69829038f7cc2dfbd",
+    "https://jbugakova.github.io/movie-info-app/assets/images/tmdb.png": "f9cb8bd5cd3b8ea8deb16480cb310017f30edf99",
+    "https://jbugakova.github.io/movie-info-app/back.d79bcbfaf6d883018aff.png": "f0147d404dd4810b690ac5ab81ea1dd2ff3c6d06",
+    "https://jbugakova.github.io/movie-info-app/favicon.png": "b75232f1ec486379b040dc23e9ab87dd62ded3d9",
+    "https://jbugakova.github.io/movie-info-app/home.ab0357be6cb6956b5e8a.png": "d76fad17a05954807e5704537c481f2722af2879",
+    "https://jbugakova.github.io/movie-info-app/index.html": "718c6a2e9d966d4fdec50db06821e8b22b2629e2",
+    "https://jbugakova.github.io/movie-info-app/loupe_icon.bcfa09ebcddcbd2a4e22.png": "28930580e8d58b51f6720a9944b8f5269968fa0c",
+    "https://jbugakova.github.io/movie-info-app/main.41c52b55787d086d41f3.js": "0d6b90b36e05a788fa57012c6a71fb2fca64fc7f",
+    "https://jbugakova.github.io/movie-info-app/manifest.webmanifest": "d9135257afff7ac6e8a37e60c83fd4529dd1b5e7",
+    "https://jbugakova.github.io/movie-info-app/next-btn.1d73f6b4c43ea676d8c5.png": "bc26eb22793d49fb07e251462d9700f769bb6333",
+    "https://jbugakova.github.io/movie-info-app/polyfills.35a5ca1855eb057f016a.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
+    "https://jbugakova.github.io/movie-info-app/prev-btn.2cb14372901630510376.png": "df6aa3e9ae0bf653cbb5ea82bf52fe311a5e3e67",
+    "https://jbugakova.github.io/movie-info-app/runtime.acf0dec4155e77772545.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://jbugakova.github.io/movie-info-app/similar-movies-arrow-left.d9d5033eb81a103d6453.png": "0f3a00d6302537f43481d07859ad830963de89b8",
+    "https://jbugakova.github.io/movie-info-app/similar-movies-arrow-right.f3c13b6b7bd3f87b75ce.png": "c897ad613e6aec186f6d424310a5bfa8fad27772",
+    "https://jbugakova.github.io/movie-info-app/styles.a2292ec99dd22c767670.css": "feb3e9047d120315d764c82f44cd99858cfec2b2"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
