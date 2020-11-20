@@ -1,6 +1,7 @@
 <div class="container">
   <a
     class="prev-page-btn"
+    title="Previous Page"
     (click)="onPrevPageClick()"
   ></a>
   <div
@@ -22,7 +23,7 @@
         ></a>
         <div class="movie-title">{{movie.title}}</div>
         <div class="rating">
-          <img src="../../../assets/images/star.png">
+          <img src="./assets/images/star.png">
           <span>{{movie.voteAverage}}</span>
         </div>
       </div>

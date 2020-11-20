@@ -60,22 +60,3 @@
     transform: rotate(-180deg);
   }
 }
-
-@media (max-width: 786px) {
-  .dropdown-container {
-    width: 140px;
-  }
-}
-
-@media (max-width: 490px) {
-  .dropdown-container {
-    font-size: 14px;
-    width: 120px;
-
-    .chosen-dropdown-item .arrow-down-image {
-      width: 15px;
-      height: 15px;
-      top: 11px;
-    }
-  }
-}

@@ -90,7 +90,7 @@ export class MoviesComponent implements OnInit {
     if (posterKey) {
       return this.sanitizer.bypassSecurityTrustUrl('https://image.tmdb.org/t/p/w500/' + posterKey);
     } else {
-      return '../assets/images/noposter.jpg';
+      return './assets/images/noposter.jpg';
     }
   }
 
