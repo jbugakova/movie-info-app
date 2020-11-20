@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1605869818839,
+  "timestamp": 1605869972659,
   "index": "https://jbugakova.github.io/movie-info-app/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "https://jbugakova.github.io/movie-info-app/index.html",
-        "https://jbugakova.github.io/movie-info-app/main.41cc1b4f4ecc41d7eba4.js",
+        "https://jbugakova.github.io/movie-info-app/main.c81d9b81d4e03e955398.js",
         "https://jbugakova.github.io/movie-info-app/manifest.webmanifest",
         "https://jbugakova.github.io/movie-info-app/polyfills.35a5ca1855eb057f016a.js",
         "https://jbugakova.github.io/movie-info-app/runtime.acf0dec4155e77772545.js",
@@ -87,9 +87,9 @@
     "https://jbugakova.github.io/movie-info-app/back.d79bcbfaf6d883018aff.png": "f0147d404dd4810b690ac5ab81ea1dd2ff3c6d06",
     "https://jbugakova.github.io/movie-info-app/favicon.png": "b75232f1ec486379b040dc23e9ab87dd62ded3d9",
     "https://jbugakova.github.io/movie-info-app/home.ab0357be6cb6956b5e8a.png": "d76fad17a05954807e5704537c481f2722af2879",
-    "https://jbugakova.github.io/movie-info-app/index.html": "df55caae38bf5c78d408d958eb3369f66d021d5f",
+    "https://jbugakova.github.io/movie-info-app/index.html": "5aaf54b7cbd7c91fa18b1c6a346af843428520c0",
     "https://jbugakova.github.io/movie-info-app/loupe_icon.bcfa09ebcddcbd2a4e22.png": "28930580e8d58b51f6720a9944b8f5269968fa0c",
-    "https://jbugakova.github.io/movie-info-app/main.41cc1b4f4ecc41d7eba4.js": "ebffab9cb7b9b740b67e101f7ec7045dea1f734a",
+    "https://jbugakova.github.io/movie-info-app/main.c81d9b81d4e03e955398.js": "e93c5f38f89a4ed964568c0991e74a3aeb049bb6",
     "https://jbugakova.github.io/movie-info-app/manifest.webmanifest": "d9135257afff7ac6e8a37e60c83fd4529dd1b5e7",
     "https://jbugakova.github.io/movie-info-app/next-btn.1d73f6b4c43ea676d8c5.png": "bc26eb22793d49fb07e251462d9700f769bb6333",
     "https://jbugakova.github.io/movie-info-app/polyfills.35a5ca1855eb057f016a.js": "578360d24ce37383f261c7ef63b1f822d28e8dde",
