@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 import {environment} from '../../environments/environment';
-import {Genre} from '../genres/genres.component';
-import {map} from 'rxjs/operators';
+import {Genre} from '../../environments/interface';
 
 @Injectable({providedIn: 'root'})
 export class GenresService {

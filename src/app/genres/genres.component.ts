@@ -1,12 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {GenresService} from '../services/genres.service';
 import {Observable} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
-export interface Genre {
-  name: string;
-  id: number;
-}
+import {GenresService} from '../services/genres.service';
+import {Genre} from '../../environments/interface';
+
 
 @Component({
   selector: 'app-genres',

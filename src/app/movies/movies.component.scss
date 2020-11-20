@@ -10,7 +10,7 @@
 .movies-container {
   display: flex;
   flex-wrap: wrap;
-  padding: 10px 30px 10px 10px;
+  padding: 10px 15px 10px 10px;
 
   .no-movies {
     text-align: center;
@@ -78,10 +78,6 @@
       }
     }
   }
-  //&::after {
-  //  content: "";
-  //  flex: auto;
-  //}
 }
 
 .movies-pagination::ng-deep .ngx-pagination {
@@ -115,7 +111,7 @@
 
 @media (max-width: 1470px) {
   .movies-container {
-    width: calc(100vw - 200px);
+    width: calc(100vw - 220px);
   }
 }
 

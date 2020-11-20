@@ -1,14 +1,11 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import {MoviesService} from '../../../services/movies.service';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 
-export interface SimilarMovie {
-  id: number;
-  title: string;
-  poster: string;
-}
+import {MoviesService} from '../../services/movies.service';
+import {SimilarMovie} from '../../../environments/interface';
+
 
 @Component({
   selector: 'app-similar-movie-carousel',

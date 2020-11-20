@@ -1,29 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {switchMap} from 'rxjs/operators';
-import {Observable} from 'rxjs';
-import {MoviesService} from '../../services/movies.service';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {DomSanitizer, SafeUrl, Title} from '@angular/platform-browser';
-import {Genre} from '../../genres/genres.component';
-import {Trailer} from './trailers/trailers.component';
+import {switchMap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
-export interface DetailedMovie {
-  id: number;
-  title: string;
-  backdropPath: string;
-  voteAverage: number;
-  tagline: string;
-  genres: Genre[];
-  runtime: number;
-  releaseDate: Date;
-  productionCountries: string[];
-  budget: number;
-  revenue: number;
-  overview: string;
-  trailers: Trailer[];
-}
+import {MoviesService} from '../services/movies.service';
+import {DetailedMovie} from '../../environments/interface';
+
 
 @Component({
   selector: 'app-movie',

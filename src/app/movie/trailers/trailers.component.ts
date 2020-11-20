@@ -1,17 +1,14 @@
 import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {DomSanitizer, SafeHtml, SafeResourceUrl} from '@angular/platform-browser';
 
-export interface Trailer {
-  key: string;
-  name: string;
-}
+import {Trailer} from '../../../environments/interface';
+
 
 @Component({
   selector: 'app-trailers',
   templateUrl: './trailers.component.html',
   styleUrls: ['./trailers.component.scss']
 })
-
 export class TrailersComponent implements OnInit, AfterViewInit {
   @Input() trailers: Trailer[];
   @ViewChild('carouselItems') carouselItems: ElementRef = null;

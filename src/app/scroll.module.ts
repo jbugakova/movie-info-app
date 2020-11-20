@@ -1,7 +1,7 @@
 import {Router, Scroll} from '@angular/router';
 import {ViewportScroller} from '@angular/common';
-import {delay, filter} from 'rxjs/operators';
 import {NgModule} from '@angular/core';
+import {delay, filter} from 'rxjs/operators';
 
 @NgModule()
 export class ScrollModule {

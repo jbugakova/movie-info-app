@@ -1,26 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {MoviesService} from '../services/movies.service';
-import {Observable} from 'rxjs';
 import {ActivatedRoute, NavigationEnd, Params, Router} from '@angular/router';
-import {GenresService} from '../services/genres.service';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {DomSanitizer, SafeUrl, Title} from '@angular/platform-browser';
 import {filter} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
-export interface MoviesResponse {
-  page: number;
-  totalPages: number;
-  results: MovieShortInfo[];
-}
+import {MoviesService} from '../services/movies.service';
+import {GenresService} from '../services/genres.service';
+import {MoviesResponse} from '../../environments/interface';
 
-export interface MovieShortInfo {
-  id: number;
-  title: string;
-  genres: string;
-  releaseDate: Date;
-  posterPath: string;
-  voteAverage: number;
-}
 
 @Component({
   selector: 'app-movies',

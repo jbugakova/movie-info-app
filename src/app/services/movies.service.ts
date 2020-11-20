@@ -1,14 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 import {environment} from '../../environments/environment';
-import {MovieShortInfo, MoviesResponse} from '../movies/movies.component';
-import {map} from 'rxjs/operators';
 import {GenresService} from './genres.service';
-import {Genre} from '../genres/genres.component';
-import {DetailedMovie} from '../movies/movie/movie.component';
-import {SimilarMovie} from '../movies/movie/similar-movie-carousel/similar-movie-carousel.component';
+import {DetailedMovie, Genre, MovieShortInfo, MoviesResponse, SimilarMovie} from '../../environments/interface';
+
 
 @Injectable({providedIn: 'root'})
 export class MoviesService {
